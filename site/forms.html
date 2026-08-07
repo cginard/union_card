@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- Static form so Netlify's deploy processing detects and registers this form's schema.
+     Real submissions are posted here via fetch() from the app (see index.html), not by
+     visiting this page. Do not remove — deleting it stops new signer records from saving. -->
+<form name="signers" method="POST" data-netlify="true" hidden>
+  <input type="hidden" name="form-name" value="signers">
+  <input type="text" name="name">
+  <input type="text" name="email">
+  <input type="text" name="cell_phone">
+  <input type="text" name="address">
+  <input type="text" name="unit">
+  <input type="text" name="city">
+  <input type="text" name="state">
+  <input type="text" name="zip">
+  <input type="text" name="worksite">
+  <input type="text" name="job_title">
+  <input type="text" name="pref_language">
+  <input type="text" name="wupp_optin">
+  <input type="text" name="wupp_amount">
+</form>
+</body>
+</html>

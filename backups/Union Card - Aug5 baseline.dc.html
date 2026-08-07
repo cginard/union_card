@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/050ff8e7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/7a992d85.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/3536f068.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/050ff8e7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/7a992d85.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/3536f068.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/050ff8e7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/7a992d85.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/3536f068.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/050ff8e7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/7a992d85.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/3536f068.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/050ff8e7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/7a992d85.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("assets/3536f068.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/98a77396.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/8ccb6416.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/00416b8f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/be757165.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/98a77396.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/8ccb6416.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/00416b8f.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/be757165.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/33128c9f.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/af40a183.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/afd88aa9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/33128c9f.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/af40a183.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/afd88aa9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/33128c9f.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/af40a183.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/afd88aa9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/33128c9f.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/af40a183.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/afd88aa9.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<script src="assets/jspdf.umd.min.js" fetchpriority="high"></script>
+<title>Join Workers United — Sign Your Union Card</title>
+<link rel="icon" type="image/png" sizes="512x512" href="https://unioncard.netlify.app/icon-512.png">
+<link rel="icon" type="image/png" sizes="256x256" href="https://unioncard.netlify.app/favicon-256.png">
+<link rel="icon" type="image/png" sizes="64x64" href="https://unioncard.netlify.app/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://unioncard.netlify.app/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://unioncard.netlify.app/favicon-16.png">
+<link rel="shortcut icon" href="https://unioncard.netlify.app/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://unioncard.netlify.app/icon-512.png">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#E7E1D7;font-family:'Public Sans',sans-serif;color:#161412;-webkit-font-smoothing:antialiased}
+  input,select,textarea,button{font-family:inherit}
+  input::placeholder{color:#B6AE9F}
+  #wuMain::-webkit-scrollbar{width:0}
+  @keyframes wuPop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+  @keyframes wuSpin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+
+<div style="max-width:460px;margin:0 auto;min-height:100vh;height:100vh;display:flex;flex-direction:column;background:#FBF8F3;box-shadow:0 0 60px rgba(22,20,18,.12);overflow:hidden">
+
+  <header style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 16px;background:#fff;border-bottom:1.5px solid #ECE5D9;flex:none;z-index:5">
+    <div style="display:flex;align-items:center;gap:9px">
+      <img src="assets/wu-mark.png" alt="Workers United" style="height:30px;width:auto;display:block">
+      <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.09em;line-height:1.15;color:#161412">WORKERS<br>UNITED</div>
+    </div>
+    <div style="display:flex;gap:5px">
+      <sc-for list="{{ langChips }}" as="c" hint-placeholder-count="4">
+        <button type="button" sc-camel-on-click="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </header>
+
+  <div style="{{ showProgress }}">
+    <div style="height:4px;background:#EFE8DC">
+      <div style="{{ progressFillStyle }}"></div>
+    </div>
+    <div style="padding:8px 18px 0;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#A89F8F">{{ stepLabel }}</div>
+  </div>
+
+  <div id="wuMain" style="flex:1;overflow-y:auto;padding:20px 18px 28px">
+
+    <!-- WELCOME -->
+    <section style="{{ show.welcome }}">
+      <img src="assets/cmrjb-seal.png" alt="Workers United — Chicago &amp; Midwest Regional Joint Board" style="width:128px;height:auto;display:block;margin:4px 0 18px">
+      <div style="font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: #ED5F18; margin-bottom: 12px">{{ t.welcomeKicker }}</div>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;color:#161412">{{ t.welcomeTitle }}</h1>
+      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 0 22px">{{ t.welcomeBody }}</p>
+      <div style="background:#161412;border-radius:16px;padding:22px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px">
+        <img src="assets/wu-mark.png" alt="" style="height:22px;width:auto;display:block;flex:none;margin-top:2px">
+        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.32;color:#fff;margin:0">{{ t.joinStatement }}</p>
+      </div>
+      <p style="font-size:13.5px;color:#8A8276;margin:0;text-align:center">{{ t.welcomeReassure }}</p>
+    </section>
+
+    <!-- INFO -->
+    <section style="{{ show.info }}">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;letter-spacing:-.01em;margin:0 0 4px;color:#161412">{{ t.s1Title }}</h2>
+      <p style="font-size:15px;color:#8A8276;margin:0 0 22px">{{ t.s1Sub }}</p>
+
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.firstName }} *</label>
+        <input value="{{ v.firstName }}" sc-camel-on-change="{{ on.firstName }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 84px;gap:10px;margin-bottom:16px">
+        <div>
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.lastName }} *</label>
+          <input value="{{ v.lastName }}" sc-camel-on-change="{{ on.lastName }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+        </div>
+        <div>
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.mi }}</label>
+          <input value="{{ v.mi }}" sc-camel-on-change="{{ on.mi }}" maxlength="2" style="width:100%;padding:13px 10px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none;text-align:center" style-focus="border-color:#ED5F18">
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.email }} *</label>
+        <input value="{{ v.email }}" sc-camel-on-change="{{ on.email }}" type="email" inputmode="email" autocapitalize="off" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.cellPhone }} *</label>
+        <input value="{{ v.cellPhone }}" sc-camel-on-change="{{ on.cellPhone }}" type="tel" inputmode="tel" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.address }} *</label>
+        <input value="{{ v.address }}" sc-camel-on-change="{{ on.address }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.unit }}</label>
+        <input value="{{ v.unit }}" sc-camel-on-change="{{ on.unit }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none">
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.city }} *</label>
+        <input value="{{ v.city }}" sc-camel-on-change="{{ on.city }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+        <div>
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.stateF }} *</label>
+          <input value="{{ v.usState }}" sc-camel-on-change="{{ on.usState }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+        </div>
+        <div>
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.zip }} *</label>
+          <input value="{{ v.zip }}" sc-camel-on-change="{{ on.zip }}" inputmode="numeric" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.worksite }} *</label>
+        <div style="position:relative">
+          <sc-raw-select value="{{ v.worksite }}" sc-camel-on-change="{{ on.worksite }}" style="width:100%;padding:13px 40px 13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none;appearance:none;-webkit-appearance:none" style-focus="border-color:#ED5F18">
+            <option value="">{{ t.worksitePh }}</option>
+            <option value="HomeGoods - Lordstown DC — Warren, OH">HomeGoods - Lordstown DC — Warren, OH</option>
+            <option value="Home Goods Company/HG Merchants — Brownsburg, IN">Home Goods Company/HG Merchants — Brownsburg, IN</option>
+            <option value="T.J. Maxx — Evansville, IN">T.J. Maxx — Evansville, IN</option>
+            <option value="Hilton Milwaukee — Milwaukee, WI">Hilton Milwaukee — Milwaukee, WI</option>
+            <option value="TJX Digital Dayton — Dayton, OH">TJX Digital Dayton — Dayton, OH</option>
+            <option value="HMS - Host - Cincinnati KY Airport — Hebron, OH">HMS - Host - Cincinnati KY Airport — Hebron, OH</option>
+            <option value="Beloit College — Beloit, WI">Beloit College — Beloit, WI</option>
+            <option value="Six Flags — Sawmill Creek Resort">Six Flags — Sawmill Creek Resort</option>
+          </sc-raw-select>
+          <span style="position:absolute;right:15px;top:50%;transform:translateY(-50%);pointer-events:none;color:#ED5F18;font-size:13px">▼</span>
+        </div>
+      </div>
+      <div style="margin-bottom:22px">
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.jobTitle }} *</label>
+        <input value="{{ v.jobTitle }}" sc-camel-on-change="{{ on.jobTitle }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+      </div>
+      <div>
+        <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:9px">{{ t.prefLanguage }} *</label>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ prefLangChips }}" as="c" hint-placeholder-count="5">
+            <button type="button" sc-camel-on-click="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- AGREEMENT -->
+    <section style="{{ show.agreement }}">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;letter-spacing:-.01em;margin:0 0 4px;color:#161412">{{ t.s2Title }}</h2>
+      <p style="font-size:15px;color:#8A8276;margin:0 0 18px">{{ t.s2Sub }}</p>
+
+      <div style="border:1.5px solid #ECE5D9;border-radius:14px;background:#fff;padding:16px 16px;max-height:230px;overflow-y:auto;margin-bottom:18px">
+        <p style="font-size:13px;line-height:1.55;color:#3D3933;margin:0 0 12px">{{ t.p1 }}</p>
+        <p style="font-size:13px;line-height:1.55;color:#3D3933;margin:0 0 12px">{{ t.p2 }}</p>
+        <p style="font-size:13px;line-height:1.55;color:#3D3933;margin:0">{{ t.p3 }}</p>
+      </div>
+
+      <label style="display:flex;gap:11px;align-items:flex-start;cursor:pointer;background:#fff;border:1.5px solid #E2DACD;border-radius:12px;padding:14px;margin-bottom:22px">
+        <input type="checkbox" checked="{{ v.agree }}" sc-camel-on-change="{{ on.agree }}" style="width:22px;height:22px;accent-color:#ED5F18;margin:0;flex:none">
+        <span style="font-size:14.5px;line-height:1.4;color:#161412;font-weight:600">{{ t.agreeLabel }}</span>
+      </label>
+
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+        <label style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276">{{ t.signature }}</label>
+        <button type="button" sc-camel-on-click="{{ clearMember }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;cursor:pointer">{{ t.clear }}</button>
+      </div>
+      <canvas id="memberSigPad" style="width:100%;height:170px;border:1.5px dashed #D8CFBF;border-radius:12px;background:#fff;display:block;touch-action:none"></canvas>
+      <div style="display:flex;justify-content:space-between;margin-top:8px">
+        <span style="font-size:12.5px;color:#A89F8F">{{ t.signHelp }}</span>
+        <span style="font-size:12.5px;color:#A89F8F">{{ t.date }}: {{ today }}</span>
+      </div>
+    </section>
+
+    <!-- WUPP -->
+    <section style="{{ show.wupp }}">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;letter-spacing:-.01em;line-height:1.08;margin:0 0 4px;color:#161412">{{ t.s3Title }}</h2>
+      <p style="font-size:15px;color:#8A8276;margin:0 0 18px">{{ t.s3Sub }}</p>
+
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;line-height:1.35;color:#161412;margin:0 0 12px">{{ t.wuppLead }}</p>
+      <p style="font-size:11px;line-height:1.5;color:#A89F8F;margin:0 0 18px">{{ t.wuppTaxTop }}</p>
+
+      <div style="display:flex;gap:10px;margin-bottom:20px">
+        <button type="button" sc-camel-on-click="{{ setWuppYes }}" style="{{ wuppYesStyle }}">{{ t.wuppYes }}</button>
+        <button type="button" sc-camel-on-click="{{ setWuppNo }}" style="{{ wuppNoStyle }}">{{ t.wuppNo }}</button>
+      </div>
+
+      <sc-if value="{{ wuppShowDetails }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <p style="font-size:13px;line-height:1.5;color:#3D3933;margin:0 0 18px">{{ t.wuppAuth }}</p>
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:9px">{{ t.amountLabel }}</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+            <sc-for list="{{ amountChips }}" as="c" hint-placeholder-count="5">
+              <button type="button" sc-camel-on-click="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px">
+            <span style="font-size:14px;color:#8A8276;font-weight:600">{{ t.other }}: $</span>
+            <input value="{{ v.wuppOther }}" sc-camel-on-change="{{ on.wuppOther }}" inputmode="decimal" style="width:110px;padding:11px 12px;border:1.5px solid #E2DACD;border-radius:11px;font-size:15px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+          </div>
+
+          <div style="margin-bottom:18px">
+            <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.printName }}</label>
+            <input value="{{ v.wuppPrintName }}" sc-camel-on-change="{{ on.wuppPrintName }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+          </div>
+
+          <label style="display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8A8276;margin-bottom:6px">{{ t.signature }}</label>
+          <input value="{{ v.wuppSigName }}" sc-camel-on-change="{{ on.wuppSigName }}" placeholder="{{ t.signTypePh }}" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#fff;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+          <div style="margin-top:10px;border:1.5px solid #ECE5D9;border-radius:12px;background:#fff;padding:12px 16px 8px;display:flex;justify-content:space-between;align-items:flex-end;gap:14px">
+            <div style="flex:1;border-bottom:1.5px solid #D8CFBF;min-height:34px;display:flex;align-items:flex-end;padding-bottom:4px">
+              <span style="font-family:'Caveat',cursive;font-size:28px;line-height:1;color:#161412">{{ v.wuppSigName }}</span>
+            </div>
+            <span style="font-size:11px;color:#A89F8F;white-space:nowrap">{{ t.date }}: {{ today }}</span>
+          </div>
+          <p style="font-size:11.5px;line-height:1.45;color:#A89F8F;margin:10px 0 0">{{ t.eSignNote }}</p>
+
+          <div style="border:1.5px solid #ECE5D9;border-radius:12px;background:#FCFAF6;padding:13px 14px;max-height:180px;overflow-y:auto;margin-top:18px">
+            <p style="font-size:11.5px;line-height:1.55;color:#5C564E;margin:0">{{ t.wuppFine }}</p>
+          </div>
+          <p style="font-size:11px;line-height:1.5;color:#A89F8F;margin:12px 0 0">{{ t.wuppTaxBottom }}</p>
+        </div>
+      </sc-if>
+    </section>
+
+    <!-- REVIEW -->
+    <section style="{{ show.review }}">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;letter-spacing:-.01em;margin:0 0 4px;color:#161412">{{ t.s4Title }}</h2>
+      <p style="font-size:15px;color:#8A8276;margin:0 0 20px">{{ t.s4Sub }}</p>
+
+      <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #F0EAE0">
+          <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#161412">{{ t.sectionContact }}</span>
+          <button type="button" sc-camel-on-click="{{ jumpInfo }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;cursor:pointer">{{ t.edit }}</button>
+        </div>
+        <div style="padding:12px 15px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.firstName }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvName }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.email }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right;word-break:break-all">{{ rvEmail }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.cellPhone }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvPhone }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.address }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvAddress }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.worksite }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvWorksite }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.jobTitle }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvJob }}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px"><span style="font-size:13px;color:#A89F8F">{{ t.prefLanguage }}</span><span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvPref }}</span></div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #F0EAE0">
+          <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#161412">{{ t.sectionMember }}</span>
+          <button type="button" sc-camel-on-click="{{ jumpAgreement }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;cursor:pointer">{{ t.edit }}</button>
+        </div>
+        <div style="padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+          <span style="font-size:13px;color:#A89F8F">{{ t.signature }}</span>
+          <sc-if value="{{ hasMemberSig }}" hint-placeholder-val="{{ true }}">
+            {{ memberSigImg }}
+          </sc-if>
+        </div>
+      </div>
+
+      <sc-if value="{{ incPolitical }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #F0EAE0">
+            <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#161412">{{ t.sectionPolitical }}</span>
+            <button type="button" sc-camel-on-click="{{ jumpWupp }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;cursor:pointer">{{ t.edit }}</button>
+          </div>
+          <div style="padding:12px 15px;display:flex;justify-content:space-between;gap:14px">
+            <span style="font-size:13px;color:#A89F8F">WUPP</span>
+            <span style="font-size:14px;color:#161412;font-weight:600;text-align:right">{{ rvWupp }}</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <label style="display:flex;gap:11px;align-items:flex-start;cursor:pointer;background:#FDEEE3;border-radius:12px;padding:14px;margin-bottom:6px">
+        <input type="checkbox" checked="{{ v.contactMe }}" sc-camel-on-change="{{ on.contactMe }}" style="width:22px;height:22px;accent-color:#ED5F18;margin:0;flex:none">
+        <span style="font-size:14.5px;line-height:1.4;color:#161412;font-weight:600">{{ t.contactMe }}</span>
+      </label>
+      <p style="font-size:12px;color:#A89F8F;margin:12px 2px 0;line-height:1.45">{{ t.emailHint }}</p>
+    </section>
+
+    <!-- SUCCESS -->
+    <section style="{{ successStyle }}">
+      <div style="width:84px;height:84px;border-radius:50%;background:#ED5F18;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:wuPop .5s ease both">
+        <span style="color:#fff;font-size:44px;font-weight:900;line-height:1">✓</span>
+      </div>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:32px;letter-spacing:-.02em;margin:0 0 12px;color:#161412">{{ t.successTitle }}</h2>
+      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 auto 24px;max-width:300px">{{ t.successBody }}</p>
+      <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:16px;padding:18px;margin:0 auto 16px;max-width:340px;text-align:left">
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#8A8276;margin-bottom:11px">{{ t.emailCopyTitle }}</div>
+        <sc-if value="{{ emailSending }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:11px;color:#8A8276;font-size:14.5px;font-weight:600">
+            <span style="width:18px;height:18px;flex:none;border:2.5px solid #E2DACD;border-top-color:#ED5F18;border-radius:50%;animation:wuSpin .7s linear infinite"></span>
+            <span>{{ t.emailCopySendingMsg }}</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ emailSent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="width:26px;height:26px;flex:none;border-radius:50%;background:#1F8A4C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900">✓</span>
+            <span style="font-size:14.5px;line-height:1.35;color:#161412;font-weight:600;word-break:break-all">{{ emailSentMsg }}</span>
+          </div>
+        </sc-if>
+        <sc-if value="{{ emailIdle }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <input value="{{ copyEmail }}" sc-camel-on-change="{{ on.copyEmail }}" type="email" inputmode="email" autocapitalize="off" placeholder="you@email.com" style="width:100%;padding:13px 14px;border:1.5px solid #E2DACD;border-radius:12px;font-size:16px;background:#FBF8F3;color:#161412;outline:none" style-focus="border-color:#ED5F18">
+            <button type="button" sc-camel-on-click="{{ emailMyCopy }}" style="background:#161412;border:none;border-radius:12px;padding:14px;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:#fff;cursor:pointer">{{ emailCopyBtnLabel }}</button>
+          </div>
+        </sc-if>
+      </div>
+      <button type="button" sc-camel-on-click="{{ downloadCopy }}" style="background:#ED5F18;border:none;border-radius:12px;padding:15px 24px;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;color:#fff;cursor:pointer;display:block;margin:0 auto 12px">{{ t.downloadCopy }}</button>
+      <button type="button" sc-camel-on-click="{{ submitAnother }}" style="background:#fff;border:1.5px solid #E2DACD;border-radius:12px;padding:13px 22px;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#161412;cursor:pointer">{{ t.successAgain }}</button>
+    </section>
+
+  </div>
+
+  <footer style="{{ footerStyle }}">
+    <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:13px;color:#C23A1A;font-weight:600;margin-bottom:10px;text-align:center">{{ error }}</div>
+    </sc-if>
+    <div style="display:flex;gap:10px">
+      <button type="button" sc-camel-on-click="{{ goBack }}" style="{{ backStyle }}">{{ t.back }}</button>
+      <button type="button" sc-camel-on-click="{{ navPrimaryAction }}" style="{{ primaryStyle }}">{{ navPrimaryLabel }}</button>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 390, &quot;height&quot;: 844 },
+  &quot;organizerEmail&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;members@cmrjb.org&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;web3formsKey&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;e83cbb66-1387-418b-82df-11d75fdcb8b5&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;includePolitical&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    lang: 'en', step: 0, submitted: false, error: '',
+    firstName: '', lastName: '', mi: '', email: '', cellPhone: '',
+    address: '', unit: '', city: '', usState: '', zip: '',
+    worksite: '', jobTitle: '', prefLang: '',
+    agree: false, memberSig: null,
+    wuppOptIn: null, wuppAmount: '', wuppOther: '', wuppPrintName: '', wuppSigName: '',
+    contactMe: false,
+    copyEmail: '', emailSent: false, emailSending: false
+  };
+
+  AMOUNTS = ['$2.50', '$5.00', '$10.00', '$15.00', '$20.00'];
+
+  LOGO_PNG = 'data:image/png;base64,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ACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEALie5v0AAA/zSURBVCAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAAEhMEACAxQQAA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';
+
+  LEGAL = {
+    p1: `I request and voluntarily accept membership in the Chicago and Midwest Regional Joint Board, Workers United, an affiliate of the Service Employees International Union, and any of its affiliates or organizations that it may assign to represent me (together “Union”). This means I will receive the benefits and will abide by the obligations of membership in the applicable Union Constitutions and Bylaws. I authorize the Union to act as my exclusive representative in collective bargaining over wages, benefits, and other terms and conditions of employment with my employer to the full extent authorized by law. My membership will be continuous, unless I resign by providing notice to the Union by U.S. mail (or other method if permitted by the Union policies). I know that membership is voluntary and not a condition of employment, and that I can decline to join without reprisal.`,
+    p2: `Additionally, I request and voluntarily authorize my employer to deduct from my earnings and to pay to the Union and its successors and assigns an amount equal to its regular dues and/or initiation fees. This deduction authorization shall remain in effect unless I revoke it by providing notice to my union by U.S. mail (or other method if permitted by Union policies) within 15 days before or after (1) the annual anniversary date of this agreement or (2) the termination of the applicable collective bargaining agreement between my employer and union (“my window periods”). This authorization will renew automatically from year to year, even if I have resigned my Union membership, unless I revoke it during one of my window periods and as required by Union policies.`,
+    p3: `This authorization is voluntary and is not a condition of my employment, and I can decline to agree to it without reprisal. I understand that all members benefit from solidarity among workers because it helps build a strong union that is able to plan and fight for the future.`,
+    wuppTaxTop: `Contributions or gifts to Workers United or one of its affiliates are not tax deductible as charitable contributions.`,
+    wuppLead: `Yes! I want to hold politicians accountable to working families and I know we can only do that if we stand together.`,
+    wuppAuth: `I hereby authorize my employer to withhold the indicated amount per month to forward to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows that I agree with the terms below.`,
+    wuppFine: `This authorization is made voluntarily based on my specific understanding that: 1) I am not required to sign this form or make voluntary contributions to WUPP as a condition of my employment or membership in the union; 2) I may refuse to contribute without reprisal; 3) Under law, only union members and executive / administrative staff who are U.S. Citizens or lawful permanent residents are eligible to contribute to WUPP; 4) The contribution amounts on this form are merely suggestions, and I may contribute more or less by this or other means without fear of favor or disadvantage from Workers United or my employer; 5) WUPP uses the money it receives for political purposes – including, but not limited to, making contributions to and expenditures on behalf of candidates for federal, state, and local offices – and addressing political issues of public importance. This authorization shall remain in effect until revoked by me in writing via U.S. mail to Workers United.`,
+    wuppTaxBottom: `Contributions or gifts to WUPP are not tax deductible as charitable contributions.`
+  };
+
+  T = {
+    en: {
+      welcomeKicker: 'Official Union Card', welcomeTitle: 'Join Workers United', welcomeBody: 'Sign your union card right here on your phone — it takes about 3 minutes.',
+      joinStatement: 'Yes, I want to join with my fellow employees and become a member of Workers United.',
+      welcomeReassure: 'Joining is voluntary and confidential.',
+      getStarted: 'Get started', back: 'Back', continue: 'Continue',
+      s1Title: 'Your information', s1Sub: 'Tell us how to reach you.',
+      firstName: 'First name', lastName: 'Last name', mi: 'M.I.', email: 'Email', cellPhone: 'Cell phone',
+      address: 'Street address', unit: 'Apt / Unit (optional)', city: 'City', stateF: 'State', zip: 'ZIP',
+      worksite: 'Worksite', worksitePh: 'Select your shop', jobTitle: 'Job title', prefLanguage: 'Preferred language', other: 'Other',
+      s2Title: 'Membership agreement', s2Sub: 'Please read and sign below.', legalNote: '',
+      p1: 'I request and voluntarily accept membership in the Chicago and Midwest Regional Joint Board, Workers United, an affiliate of the Service Employees International Union, and any of its affiliates or organizations that it may assign to represent me (together “Union”). This means I will receive the benefits and will abide by the obligations of membership in the applicable Union Constitutions and Bylaws. I authorize the Union to act as my exclusive representative in collective bargaining over wages, benefits, and other terms and conditions of employment with my employer to the full extent authorized by law. My membership will be continuous, unless I resign by providing notice to the Union by U.S. mail (or other method if permitted by the Union policies). I know that membership is voluntary and not a condition of employment, and that I can decline to join without reprisal.',
+      p2: 'Additionally, I request and voluntarily authorize my employer to deduct from my earnings and to pay to the Union and its successors and assigns an amount equal to its regular dues and/or initiation fees. This deduction authorization shall remain in effect unless I revoke it by providing notice to my union by U.S. mail (or other method if permitted by Union policies) within 15 days before or after (1) the annual anniversary date of this agreement or (2) the termination of the applicable collective bargaining agreement between my employer and union (“my window periods”). This authorization will renew automatically from year to year, even if I have resigned my Union membership, unless I revoke it during one of my window periods and as required by Union policies.',
+      p3: 'This authorization is voluntary and is not a condition of my employment, and I can decline to agree to it without reprisal. I understand that all members benefit from solidarity among workers because it helps build a strong union that is able to plan and fight for the future.',
+      agreeLabel: 'I have read and agree to the membership agreement above.', signature: 'Signature', signHelp: 'Sign with your finger', clear: 'Clear', date: 'Date',
+      s3Title: 'Workers United for Political Power', s3Sub: 'Optional — you can skip this step.',
+      wuppLead: 'Yes! I want to hold politicians accountable to working families, and I know we can only do that if we stand together.',
+      wuppAuth: 'I authorize my employer to withhold the amount below each month and forward it to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows I agree to the terms.',
+      wuppTaxTop: 'Contributions or gifts to Workers United or one of its affiliates are not tax deductible as charitable contributions.',
+      wuppFine: 'This authorization is made voluntarily based on my specific understanding that: 1) I am not required to sign this form or make voluntary contributions to WUPP as a condition of my employment or membership in the union; 2) I may refuse to contribute without reprisal; 3) Under law, only union members and executive / administrative staff who are U.S. Citizens or lawful permanent residents are eligible to contribute to WUPP; 4) The contribution amounts on this form are merely suggestions, and I may contribute more or less by this or other means without fear of favor or disadvantage from Workers United or my employer; 5) WUPP uses the money it receives for political purposes \u2013 including, but not limited to, making contributions to and expenditures on behalf of candidates for federal, state, and local offices \u2013 and addressing political issues of public importance. This authorization shall remain in effect until revoked by me in writing via U.S. mail to Workers United.',
+      wuppTaxBottom: 'Contributions or gifts to WUPP are not tax deductible as charitable contributions.',
+      wuppYes: 'Yes, count me in', wuppNo: 'Not now', amountLabel: 'Monthly contribution', printName: 'Print name', signTypePh: 'Type your full name', eSignNote: 'By typing my name, I am signing electronically.', downloadCopy: 'Download my signed copy (PDF)',
+      notTax: 'Contributions or gifts to WUPP are not tax deductible as charitable contributions.',
+      s4Title: 'Review & submit', s4Sub: 'Check that everything looks right.', edit: 'Edit',
+      contactMe: 'Contact me about opportunities to get involved.', submit: 'Submit my card', submitting: 'Sending…',
+      sectionMember: 'Membership', sectionContact: 'Contact', sectionPolitical: 'Political Power',
+      notProvided: '—', yes: 'Yes', no: 'No', skipped: 'Skipped',
+      errName: 'Please enter your first and last name.', errInfo: 'Please fill in all fields to continue.', errWorksite: 'Please select your worksite.', errAgree: 'Please check the box to agree.', errSign: 'Please add your signature.',
+      employerNoteTitle: 'Give your employer a copy now', employerNote: 'Federal law requires your employer to receive a copy of your signed card right away. Tap below to download or print it and hand it to your employer today.',
+      successTitle: 'You\u2019re in.', successBody: 'Your union card has been recorded. Your Union Representative or Shop Steward will be contacting you soon. In solidarity!', successAgain: 'Submit another card', emailCopyTitle: 'Email me my signed copy', emailCopyBtn: 'Send to my email', emailCopySending: 'Sending\u2026', emailCopySent: 'Sent to {email}', emailCopySendingMsg: 'Emailing your copy\u2026',
+      emailHint: 'Tapping submit opens your email app to send your card to an organizer.'
+    },
+    es: {
+      welcomeKicker: 'Tarjeta Sindical Oficial', welcomeTitle: 'Únete a Workers United', welcomeBody: 'Firma tu tarjeta sindical aquí en tu teléfono — toma unos 3 minutos.',
+      joinStatement: 'Sí, quiero unirme a mis compañeros de trabajo y hacerme miembro de Workers United.',
+      welcomeReassure: 'Unirse es voluntario y confidencial.',
+      getStarted: 'Comenzar', back: 'Atrás', continue: 'Continuar',
+      s1Title: 'Tu información', s1Sub: 'Dinos cómo contactarte.',
+      firstName: 'Nombre', lastName: 'Apellido', mi: 'Inicial', email: 'Correo electrónico', cellPhone: 'Teléfono celular',
+      address: 'Dirección', unit: 'Apto / Unidad (opcional)', city: 'Ciudad', stateF: 'Estado', zip: 'Código postal',
+      worksite: 'Lugar de trabajo', worksitePh: 'Selecciona tu tienda', jobTitle: 'Puesto', prefLanguage: 'Idioma preferido', other: 'Otro',
+      s2Title: 'Acuerdo de membresía', s2Sub: 'Por favor lee y firma abajo.', legalNote: '',
+      p1: 'Solicito y acepto voluntariamente ser miembro de la Chicago and Midwest Regional Joint Board, Workers United, afiliada al Service Employees International Union, y de cualquiera de sus afiliadas u organizaciones que designe para representarme (en conjunto, el “Sindicato”). Esto significa que recibiré los beneficios y cumpliré con las obligaciones de membresía establecidas en las Constituciones y Estatutos aplicables del Sindicato. Autorizo al Sindicato a actuar como mi representante exclusivo en la negociación colectiva sobre salarios, beneficios y demás términos y condiciones de empleo con mi empleador, en la medida en que lo permita la ley. Mi membresía será continua, a menos que renuncie notificando al Sindicato por correo postal de EE. UU. (u otro método si lo permiten las políticas del Sindicato). Sé que la membresía es voluntaria y no es una condición de empleo, y que puedo negarme a afiliarme sin represalias.',
+      p2: 'Además, solicito y autorizo voluntariamente a mi empleador a deducir de mis ingresos y pagar al Sindicato y a sus sucesores y cesionarios una cantidad igual a sus cuotas regulares y/o cuotas de inscripción. Esta autorización de deducción permanecerá vigente a menos que la revoque notificando a mi sindicato por correo postal de EE. UU. (u otro método si lo permiten las políticas del Sindicato) dentro de los 15 días antes o después de (1) la fecha de aniversario anual de este acuerdo o (2) la terminación del convenio colectivo aplicable entre mi empleador y el sindicato (“mis períodos de ventana”). Esta autorización se renovará automáticamente de año en año, incluso si he renunciado a mi membresía sindical, a menos que la revoque durante uno de mis períodos de ventana y según lo requieran las políticas del Sindicato.',
+      p3: 'Esta autorización es voluntaria y no es una condición de mi empleo, y puedo negarme a aceptarla sin represalias. Entiendo que todos los miembros se benefician de la solidaridad entre trabajadores, porque ayuda a construir un sindicato fuerte capaz de planificar y luchar por el futuro.',
+      agreeLabel: 'He leído y acepto el acuerdo de membresía anterior.', signature: 'Firma', signHelp: 'Firma con tu dedo', clear: 'Borrar', date: 'Fecha',
+      s3Title: 'Workers United for Political Power', s3Sub: 'Opcional — puedes omitir este paso.',
+      wuppLead: '¡Sí! Quiero exigir cuentas a los políticos ante las familias trabajadoras, y sé que solo podemos lograrlo si estamos unidos.',
+      wuppAuth: 'Autorizo a mi empleador a retener la cantidad indicada cada mes y enviarla a CMRJB como contribución a Workers United for Political Power (WUPP). Mi firma muestra que acepto los términos.',
+      wuppTaxTop: 'Las contribuciones o donaciones a Workers United o a una de sus afiliadas no son deducibles de impuestos como contribuciones caritativas.',
+      wuppFine: 'Esta autorización se hace voluntariamente con base en mi entendimiento específico de que: 1) No estoy obligado/a a firmar este formulario ni a hacer contribuciones voluntarias a WUPP como condición de mi empleo o membresía en el sindicato; 2) Puedo negarme a contribuir sin represalias; 3) Por ley, solo los miembros del sindicato y el personal ejecutivo/administrativo que sean ciudadanos de EE. UU. o residentes permanentes legales pueden contribuir a WUPP; 4) Los montos de contribución en este formulario son solo sugerencias, y puedo contribuir más o menos por este u otros medios sin temor a favoritismo o desventaja por parte de Workers United o mi empleador; 5) WUPP usa el dinero que recibe para fines políticos \u2013 incluyendo, entre otros, hacer contribuciones y gastos en nombre de candidatos a cargos federales, estatales y locales \u2013 y abordar asuntos políticos de importancia pública. Esta autorización permanecerá vigente hasta que yo la revoque por escrito por correo postal de EE. UU. a Workers United.',
+      wuppTaxBottom: 'Las contribuciones o donaciones a WUPP no son deducibles de impuestos como contribuciones caritativas.',
+      wuppYes: 'Sí, cuenten conmigo', wuppNo: 'Ahora no', amountLabel: 'Contribución mensual', printName: 'Nombre en letra de molde', signTypePh: 'Escribe tu nombre completo', eSignNote: 'Al escribir mi nombre, firmo electrónicamente.', downloadCopy: 'Descargar mi copia firmada (PDF)',
+      notTax: 'Las contribuciones o donaciones a WUPP no son deducibles de impuestos como contribuciones caritativas.',
+      s4Title: 'Revisar y enviar', s4Sub: 'Verifica que todo esté correcto.', edit: 'Editar',
+      contactMe: 'Quiero que me contacten sobre oportunidades para participar.', submit: 'Enviar mi tarjeta', submitting: 'Enviando…',
+      sectionMember: 'Membresía', sectionContact: 'Contacto', sectionPolitical: 'Poder Político',
+      notProvided: '—', yes: 'Sí', no: 'No', skipped: 'Omitido',
+      errName: 'Por favor ingresa tu nombre y apellido.', errInfo: 'Por favor completa todos los campos para continuar.', errWorksite: 'Por favor selecciona tu lugar de trabajo.', errAgree: 'Por favor marca la casilla para aceptar.', errSign: 'Por favor agrega tu firma.',
+      employerNoteTitle: 'Entrega una copia a tu empleador ahora', employerNote: 'La ley federal exige que tu empleador reciba una copia de tu tarjeta firmada de inmediato. Toca abajo para descargarla o imprimirla y entrégasela hoy mismo.',
+      successTitle: '¡Ya eres miembro!', successBody: 'Tu tarjeta sindical ha sido registrada. Tu Representante Sindical o Delegado de Taller se pondrá en contacto contigo pronto. ¡En solidaridad!', successAgain: 'Enviar otra tarjeta', emailCopyTitle: 'Envíenme mi copia firmada', emailCopyBtn: 'Enviar a mi correo', emailCopySending: 'Enviando\u2026', emailCopySent: 'Enviado a {email}', emailCopySendingMsg: 'Enviando tu copia\u2026',
+      emailHint: 'Al enviar se abrirá tu aplicación de correo para enviar tu tarjeta a un organizador.'
+    },
+    ht: {
+      welcomeKicker: 'Kat Sendika Ofisyèl', welcomeTitle: 'Antre nan Workers United', welcomeBody: 'Siyen kat sendika ou la sou telefòn ou — li pran anviwon 3 minit.',
+      joinStatement: 'Wi, mwen vle antre ansanm ak kòlèg travay mwen yo epi vin manm Workers United.',
+      welcomeReassure: 'Antre se volontè e konfidansyèl.',
+      getStarted: 'Kòmanse', back: 'Tounen', continue: 'Kontinye',
+      s1Title: 'Enfòmasyon ou', s1Sub: 'Di nou kijan pou nou kontakte ou.',
+      firstName: 'Prenon', lastName: 'Siyati', mi: 'Inisyal', email: 'Imèl', cellPhone: 'Telefòn selilè',
+      address: 'Adrès', unit: 'Apatman / Inite (opsyonèl)', city: 'Vil', stateF: 'Eta', zip: 'Kòd postal',
+      worksite: 'Kote travay', worksitePh: 'Chwazi magazen ou', jobTitle: 'Tit travay', prefLanguage: 'Lang ou pi pito', other: 'Lòt',
+      s2Title: 'Akò manm', s2Sub: 'Tanpri li epi siyen anba a.', legalNote: '',
+      p1: 'Mwen mande epi aksepte volontèman antre kòm manm nan Chicago and Midwest Regional Joint Board, Workers United, ki afilye ak Service Employees International Union, ak nenpòt nan afilye oswa òganizasyon li ka mande pou reprezante m (ansanm, “Sendika”). Sa vle di m ap resevwa avantaj yo epi m ap respekte obligasyon manm yo nan Konstitisyon ak Règleman Sendika ki aplikab yo. Mwen otorize Sendika a pou l aji kòm reprezantan eksklizif mwen nan negosyasyon kolektif sou salè, avantaj, ak lòt kondisyon travay ak patwon mwen, nan tout limit lalwa pèmèt sa. Manm mwen ap kontinyèl, sof si mwen demisyone lè mwen bay Sendika a yon avi pa lapòs Etazini (oswa yon lòt metòd si règleman Sendika a pèmèt sa). Mwen konnen manm se volontè e li pa yon kondisyon travay, e mwen ka refize antre san reprezay.',
+      p2: 'Anplis, mwen mande epi otorize volontèman patwon mwen pou l dedwi nan salè mwen epi peye Sendika a ak siksesè ak sesyonè li yo yon montan ki egal ak kotizasyon regilye li ak/oswa frè admisyon li. Otorizasyon dediksyon sa a ap rete an vigè sof si mwen revoke l lè mwen bay sendika mwen an yon avi pa lapòs Etazini (oswa yon lòt metòd si règleman Sendika a pèmèt sa) nan 15 jou anvan oswa apre (1) dat anivèsè anyèl akò sa a oswa (2) fen akò negosyasyon kolektif ki aplikab ant patwon mwen ak sendika a (“peryòd fenèt mwen yo”). Otorizasyon sa a ap renouvle otomatikman ane apre ane, menm si mwen demisyone kòm manm Sendika, sof si mwen revoke l pandan youn nan peryòd fenèt mwen yo epi jan règleman Sendika a mande.',
+      p3: 'Otorizasyon sa a se volontè e li pa yon kondisyon travay mwen, e mwen ka refize dakò avè l san reprezay. Mwen konprann ke tout manm benefisye nan solidarite ant travayè yo, paske sa ede bati yon sendika solid ki kapab planifye epi goumen pou lavni.',
+      agreeLabel: 'Mwen li epi mwen dakò ak akò manm ki anwo a.', signature: 'Siyati', signHelp: 'Siyen ak dwèt ou', clear: 'Efase', date: 'Dat',
+      s3Title: 'Workers United for Political Power', s3Sub: 'Si ou vle — ou ka sote etap sa a.',
+      wuppLead: 'Wi! Mwen vle fè politisyen yo responsab devan fanmi k ap travay, e mwen konnen nou ka fè sa sèlman si nou ini.',
+      wuppAuth: 'Mwen otorize patwon mwen pou l kenbe kantite ki anba a chak mwa epi voye l bay CMRJB kòm kontribisyon pou Workers United for Political Power (WUPP). Siyati mwen montre mwen dakò ak kondisyon yo.',
+      wuppTaxTop: 'Kontribisyon oswa kado bay Workers United oswa youn nan afilye li yo pa dediktib nan taks kòm kontribisyon charitab.',
+      wuppFine: 'Otorizasyon sa a fèt volontèman dapre konprann espesifik mwen ke: 1) Mwen pa oblije siyen fòm sa a ni fè kontribisyon volontè bay WUPP kòm yon kondisyon pou travay mwen oswa manm mwen nan sendika a; 2) Mwen ka refize kontribye san reprezay; 3) Dapre lalwa, se sèlman manm sendika ak anplwaye egzekitif/administratif ki se sitwayen Etazini oswa rezidan pèmanan legal ki kapab kontribye bay WUPP; 4) Montan kontribisyon ki sou fòm sa a se sèlman sijesyon, e mwen ka kontribye plis oswa mwens pa mwayen sa a oswa lòt mwayen san krèt fè favè oswa dezavantaj nan men Workers United oswa patwon mwen; 5) WUPP itilize lajan li resevwa pou rezon politik \u2013 ki gen ladann, men pa limite a, fè kontribisyon ak depans pou kandida pou pòs federal, eta, ak lokal \u2013 epi trete pwoblèm politik ki enpòtan pou piblik la. Otorizasyon sa a ap rete an vigè jiskaske mwen revoke l alekri pa lapòs Etazini bay Workers United.',
+      wuppTaxBottom: 'Kontribisyon oswa kado bay WUPP pa dediktib nan taks kòm kontribisyon charitab.',
+      wuppYes: 'Wi, konte sou mwen', wuppNo: 'Pa kounye a', amountLabel: 'Kontribisyon chak mwa', printName: 'Non an lèt detache', signTypePh: 'Tape non konplè ou', eSignNote: 'Lè mwen tape non mwen, mwen siyen elektwonikman.', downloadCopy: 'Telechaje kopi ou siyen an (PDF)',
+      notTax: 'Kontribisyon oswa kado bay WUPP pa dediktib nan taks kòm kontribisyon charitab.',
+      s4Title: 'Revize epi voye', s4Sub: 'Verifye tout bagay kòrèk.', edit: 'Modifye',
+      contactMe: 'Kontakte mwen sou opòtinite pou patisipe.', submit: 'Voye kat mwen', submitting: 'Ap voye…',
+      sectionMember: 'Manm', sectionContact: 'Kontak', sectionPolitical: 'Pouvwa Politik',
+      notProvided: '—', yes: 'Wi', no: 'Non', skipped: 'Sote',
+      errName: 'Tanpri antre prenon ak siyati ou.', errInfo: 'Tanpri ranpli tout chan yo pou ou ka kontinye.', errWorksite: 'Tanpri chwazi kote ou travay.', errAgree: 'Tanpri make kazye a pou ou dakò.', errSign: 'Tanpri ajoute siyati ou.',
+      employerNoteTitle: 'Bay patwon ou yon kopi kounye a', employerNote: 'Lalwa federal egzije pou patwon ou resevwa yon kopi kat siyen ou an touswit. Peze anba a pou telechaje oswa enprime l epi remèt li bay patwon ou jodi a.',
+      successTitle: 'Ou ladann!', successBody: 'Yo anrejistre kat sendika ou. Reprezantan Sendika ou oswa Delege Atelye ou ap kontakte ou byento. Nan solidarite!', successAgain: 'Voye yon lòt kat', emailCopyTitle: 'Voye kopi mwen siyen an ban mwen', emailCopyBtn: 'Voye l nan imèl mwen', emailCopySending: 'Ap voye\u2026', emailCopySent: 'Voye bay {email}', emailCopySendingMsg: 'N ap voye kopi ou\u2026',
+      emailHint: 'Lè ou peze voye, l ap louvri aplikasyon imèl ou pou voye kat ou bay yon òganizatè.'
+    },
+    zh: {
+      welcomeKicker: '正式工会卡', welcomeTitle: '加入 Workers United', welcomeBody: '在手机上签署你的工会卡——大约需要 3 分钟。',
+      joinStatement: '是的，我愿意与同事们一起加入并成为 Workers United 的会员。',
+      welcomeReassure: '加入是自愿且保密的。',
+      getStarted: '开始', back: '返回', continue: '继续',
+      s1Title: '你的信息', s1Sub: '告诉我们如何联系你。',
+      firstName: '名', lastName: '姓', mi: '中间名缩写', email: '电子邮箱', cellPhone: '手机号码',
+      address: '街道地址', unit: '公寓/单元(可选)', city: '城市', stateF: '州', zip: '邮编',
+      worksite: '工作地点', worksitePh: '选择你的门店', jobTitle: '职位', prefLanguage: '首选语言', other: '其他',
+      s2Title: '会员协议', s2Sub: '请阅读并在下方签名。', legalNote: '',
+      p1: '本人请求并自愿加入 Chicago and Midwest Regional Joint Board, Workers United（其为 Service Employees International Union 的附属机构），以及该机构可能指定代表我的任何附属机构或组织（合称“工会”）。这意味着我将获得会员福利，并遵守适用工会章程和细则中规定的会员义务。我在法律允许的最大范围内，授权工会就工资、福利及其他雇佣条款和条件，作为我与雇主集体谈判的唯一代表。我的会员资格将持续有效，除非我通过美国邮政（或工会政策允许的其他方式）通知工会退会。我知道会员资格是自愿的，并非就业的条件，我可以拒绝加入而不会受到报复。',
+      p2: '此外，我请求并自愿授权我的雇主从我的收入中扣除一笔相当于工会常规会费和/或入会费的金额，并支付给工会及其继承人和受让方。此扣款授权将持续有效，除非我在以下时间的前后 15 天内通过美国邮政（或工会政策允许的其他方式）通知我的工会予以撤销：（1）本协议的每年周年日，或（2）我雇主与工会之间适用的集体谈判协议的终止之日（“我的窗口期”）。即使我已退出工会会员资格，本授权仍将逐年自动续期，除非我在我的某个窗口期内并按照工会政策要求予以撤销。',
+      p3: '本授权是自愿的，并非我就业的条件，我可以拒绝同意而不会受到报复。我理解所有会员都从工人团结中受益，因为这有助于建立一个能够为未来做规划并奋斗的强大工会。',
+      agreeLabel: '我已阅读并同意上述会员协议。', signature: '签名', signHelp: '用手指签名', clear: '清除', date: '日期',
+      s3Title: 'Workers United for Political Power', s3Sub: '可选——你可以跳过此步骤。',
+      wuppLead: '是的！我要让政客对工薪家庭负责，我知道只有团结起来才能做到。',
+      wuppAuth: '我授权我的雇主每月扣除下列金额并转交给 CMRJB，作为对 Workers United for Political Power (WUPP) 的捐款。我的签名表示我同意以下条款。',
+      wuppTaxTop: '向 Workers United 或其任何附属机构的捐款或礼物不可作为慈善捐赠抵税。',
+      wuppFine: '本授权是在我具体理解以下各点的基础上自愿作出的：1）我没有义务签署本表格，也没有义务向 WUPP 作自愿捐款，这不是我就业或加入工会的条件；2）我可以拒绝捐款而不会受到报复；3）根据法律，只有身为美国公民或合法永久居民的工会会员及行政/管理人员才有资格向 WUPP 捐款；4）本表格上的捐款金额仅为建议，我可以通过此方式或其他方式多捐或少捐，不必担心 Workers United 或我的雇主会因此给予优待或不利对待；5）WUPP 将其收到的款项用于政治用途——包括但不限于为竞选联邦、州及地方公职的候选人捐款和支出，以及处理具有公共重要性的政治议题。本授权在我通过美国邮政书面撤销之前持续有效。',
+      wuppTaxBottom: '向 WUPP 的捐款或礼物不可作为慈善捐赠抵税。',
+      wuppYes: '是的，算我一个', wuppNo: '暂不', amountLabel: '每月捐款', printName: '正楷姓名', signTypePh: '输入你的全名', eSignNote: '输入姓名即表示以电子方式签署。', downloadCopy: '下载我的签署副本（PDF）',
+      notTax: '向 WUPP 的捐款或礼物不可作为慈善捐赠抵税。',
+      s4Title: '检查并提交', s4Sub: '请确认所有信息无误。', edit: '编辑',
+      contactMe: '请就参与机会与我联系。', submit: '提交我的工会卡', submitting: '正在发送…',
+      sectionMember: '会员', sectionContact: '联系方式', sectionPolitical: '政治力量',
+      notProvided: '—', yes: '是', no: '否', skipped: '已跳过',
+      errName: '请输入你的名和姓。', errInfo: '请填写所有字段以继续。', errWorksite: '请选择你的工作地点。', errAgree: '请勾选以表示同意。', errSign: '请添加你的签名。',
+      employerNoteTitle: '立即将副本交给你的雇主', employerNote: '联邦法律要求你的雇主立即收到你已签署卡片的副本。请点击下方下载或打印，并今天就交给你的雇主。',
+      successTitle: '你已加入！', successBody: '你的工会卡已登记。你的工会代表或车间代表会尽快与你联系。团结万岁！', successAgain: '再提交一张卡', emailCopyTitle: '把签署副本发送到我的邮箱', emailCopyBtn: '发送到我的邮箱', emailCopySending: '正在发送\u2026', emailCopySent: '已发送至 {email}', emailCopySendingMsg: '正在发送你的副本\u2026',
+      emailHint: '点击提交会打开你的邮件应用，把你的卡发送给组织者。'
+    }
+  };
+
+  componentDidMount() {
+    this.attachPad('memberSigPad', 'memberSig');
+  }
+
+  attachPad(canvasId, key) {
+    const c = document.getElementById(canvasId);
+    if (!c || c.__wired) return;
+    c.__wired = true;
+    c.width = 640; c.height = 220;
+    const ctx = c.getContext('2d');
+    ctx.lineWidth = 3.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#161412';
+    let drawing = false, last = null, dirty = false;
+    const pos = (e) => {
+      const r = c.getBoundingClientRect();
+      const t = (e.touches && e.touches[0]) ? e.touches[0] : e;
+      return { x: (t.clientX - r.left) * (c.width / r.width), y: (t.clientY - r.top) * (c.height / r.height) };
+    };
+    const down = (e) => { e.preventDefault(); drawing = true; last = pos(e); };
+    const move = (e) => {
+      if (!drawing) return; e.preventDefault();
+      const p = pos(e); ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke(); last = p; dirty = true;
+    };
+    const up = () => { if (!drawing) return; drawing = false; if (dirty) this.setState({ [key]: c.toDataURL('image/png') }); };
+    c.addEventListener('pointerdown', down);
+    c.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+    c.__clear = () => { ctx.clearRect(0, 0, c.width, c.height); dirty = false; this.setState({ [key]: null }); };
+  }
+
+  clearPad(id) { const c = document.getElementById(id); if (c && c.__clear) c.__clear(); }
+
+  organizerEmail() { return this.props.organizerEmail || 'members@cmrjb.org'; }
+  accessKey() { return this.props.web3formsKey || 'e83cbb66-1387-418b-82df-11d75fdcb8b5'; }
+  includePolitical() { return this.props.includePolitical !== false; }
+
+  stepKeys() {
+    const k = ['welcome', 'info', 'agreement'];
+    if (this.includePolitical()) k.push('wupp');
+    k.push('review');
+    return k;
+  }
+
+  set(k) {
+    return (e) => {
+      const val = (e && e.target) ? (e.target.type === 'checkbox' ? e.target.checked : e.target.value) : e;
+      this.setState({ [k]: val, error: '' });
+    };
+  }
+
+  buildPdf() {
+    if (!window.jspdf) return null;
+    const s = this.state;
+    const t = this.T[s.lang] || this.T.en;
+    const doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter' });
+    const W = doc.internal.pageSize.getWidth();
+    const H = doc.internal.pageSize.getHeight();
+    const M = 54;
+    let y = M;
+    const ensure = (h) => { if (y + h > H - M) { doc.addPage(); y = M; } };
+    const text = (str, o) => {
+      o = o || {};
+      const size = o.size || 9.5, style = o.style || 'normal', gap = (o.gap != null ? o.gap : 6), color = (o.color != null ? o.color : 40);
+      const lh = size * 1.45;
+      doc.setFont('helvetica', style); doc.setFontSize(size); doc.setTextColor(color);
+      const lines = doc.splitTextToSize(String(str), W - 2 * M);
+      for (let i = 0; i < lines.length; i++) { ensure(lh); doc.text(lines[i], M, y); y += lh; }
+      y += gap;
+    };
+    const rule = () => { ensure(16); doc.setDrawColor(237, 95, 24); doc.setLineWidth(2); doc.line(M, y, W - M, y); y += 16; };
+    const fullName = [s.firstName, s.mi ? s.mi + '.' : '', s.lastName].filter(Boolean).join(' ');
+
+    const logoW = 26, logoH = 39;
+    try { doc.addImage(this.LOGO_PNG, 'PNG', M, y, logoW, logoH); } catch (e) {}
+    const headX = M + logoW + 10, headTop = y + 5;
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(13); doc.setTextColor(20);
+    doc.text('WORKERS UNITED \u2014 CHICAGO & MIDWEST REGIONAL JOINT BOARD', headX, headTop, { maxWidth: W - M - headX });
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5); doc.setTextColor(120);
+    doc.text('Union Membership Card \u2014 Member Copy', headX, headTop + 15);
+    y += logoH + 6;
+    rule();
+    text(t.agreeLabel, { size: 10, style: 'bold', color: 25 });
+    text(t.p1, {});
+    text(t.p2, {});
+    text(t.p3, {});
+    y += 4;
+    text('MEMBER INFORMATION', { size: 10, style: 'bold', color: 120, gap: 8 });
+    [['Name', fullName], ['Email', s.email], ['Cell phone', s.cellPhone],
+     ['Address', [s.address, s.city, [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ')],
+     ['Worksite', s.worksite], ['Job title', s.jobTitle], ['Preferred language', s.prefLang]
+    ].forEach((row) => text(row[0] + ':  ' + (row[1] || '\u2014'), { size: 10, gap: 3 }));
+    y += 6;
+    text('Signature:', { size: 10, style: 'bold', color: 20, gap: 4 });
+    if (s.memberSig) { ensure(64); try { doc.addImage(s.memberSig, 'PNG', M, y, 180, 54); } catch (e) {} y += 64; } else { text('\u2014', { size: 10 }); }
+    text('Date:  ' + this.today(), { size: 10, gap: 4 });
+
+    if (this.includePolitical() && s.wuppOptIn) {
+      rule();
+      text('WORKERS UNITED FOR POLITICAL POWER (WUPP)', { size: 11, style: 'bold', color: 20 });
+      text(t.wuppLead, { size: 10, style: 'bold', color: 25 });
+      text(t.wuppAuth, {});
+      text('Monthly contribution:  ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '\u2014')), { size: 10, style: 'bold', gap: 2 });
+      text('Print name:  ' + (s.wuppPrintName || '\u2014'), { size: 10, gap: 2 });
+      text('Signature:  ' + (s.wuppSigName || '\u2014') + '   (signed electronically)', { size: 10, style: 'bold', gap: 4 });
+      text(t.wuppFine, { size: 8, color: 90 });
+      text(t.wuppTaxBottom, { size: 8, color: 120 });
+    }
+    rule();
+    text('Contact me about opportunities to get involved:  ' + (s.contactMe ? 'Yes' : 'No'), { size: 9.5, color: 90, gap: 2 });
+    text('Generated ' + new Date().toLocaleString(), { size: 8, color: 150 });
+    return doc;
+  }
+
+  downloadPdf() {
+    const doc = this.buildPdf();
+    if (!doc) { return; }
+    const s = this.state;
+    const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
+    doc.save('Workers United Card - ' + nm + '.pdf');
+  }
+
+  async emailMyCopy() {
+    if (this.state.emailSending) return;
+    const doc = this.buildPdf();
+    if (!doc) return;
+    const s = this.state;
+    const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
+    const to = (s.copyEmail || s.email || '').trim();
+    if (!to) { this.setState({ emailSending: false }); return; }
+    this.setState({ emailSending: true, error: '' });
+    let ok = false;
+    try {
+      const b64 = doc.output('datauristring').split(',')[1];
+      const res = await fetch(this.memberEndpoint(), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to, name: nm, lang: s.lang, worksite: s.worksite, pdfBase64: b64, summary: '', subject: 'Member copy request' })
+      });
+      if (res.ok) { const j = await res.json().catch(() => ({})); ok = !!j.memberOk; }
+    } catch (e) {}
+    this.setState({ emailSending: false, emailSent: true, emailSendFailed: !ok });
+  }
+
+  memberEndpoint() { return this.props.memberEmailEndpoint || '/.netlify/functions/send-copy'; }
+
+  async sendMemberCopy() {
+    const s = this.state;
+    const to = (s.email || '').trim();
+    if (!to) return false;
+    let b64;
+    try { const doc = this.buildPdf(); if (!doc) return false; b64 = doc.output('datauristring').split(',')[1]; }
+    catch (e) { return false; }
+    const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
+    try {
+      const res = await fetch(this.memberEndpoint(), {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to: to, name: nm, lang: s.lang, subject: 'Your signed Workers United card', pdfBase64: b64 })
+      });
+      return res.ok;
+    } catch (e) { return false; }
+  }
+
+  today() {
+    const loc = { en: 'en-US', es: 'es', ht: 'fr-HT', zh: 'zh-CN' }[this.state.lang] || 'en-US';
+    try { return new Date().toLocaleDateString(loc, { year: 'numeric', month: 'long', day: 'numeric' }); }
+    catch (e) { return new Date().toLocaleDateString(); }
+  }
+
+  stepLabel() {
+    const n = this.state.step; if (n === 0) return '';
+    const tot = this.stepKeys().length - 1;
+    const m = { en: `Step ${n} of ${tot}`, es: `Paso ${n} de ${tot}`, ht: `Etap ${n} sou ${tot}`, zh: `第 ${n} 步 / 共 ${tot} 步` };
+    return m[this.state.lang];
+  }
+
+  validate(key) {
+    const t = this.T[this.state.lang], s = this.state;
+    if (key === 'info') {
+      if (!s.firstName.trim() || !s.lastName.trim() || !s.email.trim() || !s.cellPhone.trim() ||
+          !s.address.trim() || !s.city.trim() || !s.usState.trim() || !s.zip.trim() ||
+          !s.jobTitle.trim() || !s.prefLang) return t.errInfo;
+      if (!s.worksite) return t.errWorksite;
+    }
+    if (key === 'agreement') {
+      if (!s.agree) return t.errAgree;
+      if (!s.memberSig) return t.errSign;
+    }
+    return '';
+  }
+
+  go(dir) {
+    const keys = this.stepKeys();
+    if (dir > 0) {
+      const err = this.validate(keys[this.state.step]);
+      if (err) { this.setState({ error: err }); return; }
+    }
+    let n = this.state.step + dir;
+    if (n < 0) n = 0;
+    if (n > keys.length - 1) n = keys.length - 1;
+    this.setState({ step: n, error: '' });
+    const m = document.getElementById('wuMain'); if (m) m.scrollTop = 0;
+  }
+
+  jump(key) {
+    const i = this.stepKeys().indexOf(key);
+    if (i >= 0) { this.setState({ step: i, error: '' }); const m = document.getElementById('wuMain'); if (m) m.scrollTop = 0; }
+  }
+
+  async waitForJspdf(timeoutMs) {
+    const start = Date.now();
+    while (!window.jspdf) {
+      if (Date.now() - start > timeoutMs) return false;
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    return true;
+  }
+
+  async submit() {
+    if (this.state.submitting) return;
+    if (!window.jspdf) { this.setState({ submitting: true }); await this.waitForJspdf(8000); }
+    const s = this.state;
+    const L = [];
+    L.push('WORKERS UNITED — DIGITAL MEMBERSHIP CARD');
+    L.push('');
+    L.push('Name: ' + [s.firstName, s.mi, s.lastName].filter(Boolean).join(' '));
+    L.push('Email: ' + s.email);
+    L.push('Cell phone: ' + s.cellPhone);
+    L.push('Address: ' + [s.address, s.city, [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', '));
+    L.push('Worksite: ' + s.worksite);
+    L.push('Job title: ' + s.jobTitle);
+    L.push('Preferred language: ' + s.prefLang);
+    L.push('Agreed to membership: ' + (s.agree ? 'YES' : 'NO'));
+    L.push('Membership signature: ' + (s.memberSig ? '[drawn signature, see attached PDF]' : '[none]'));
+    if (this.includePolitical()) {
+      L.push('');
+      L.push('WUPP (Political Power): ' + (s.wuppOptIn ? ('YES — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '?')) + '/month') : 'Not now'));
+      if (s.wuppOptIn) {
+        L.push('WUPP name: ' + s.wuppPrintName);
+        L.push('WUPP signature: ' + (s.wuppSigName || '[none]') + ' (e-signed)');
+      }
+    }
+    L.push('Contact me to get involved: ' + (s.contactMe ? 'YES' : 'NO'));
+    L.push('Date: ' + this.today());
+    const body = L.join('\n');
+    const subject = 'New union card — ' + s.firstName + ' ' + s.lastName + ' (' + s.worksite + ')';
+    const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
+
+    const memberTo = (s.email || '').trim();
+    this.setState({ submitting: true, error: '' });
+
+    // Build the signed PDF once (the official record).
+    let b64 = null;
+    try { const doc = this.buildPdf(); if (doc) b64 = doc.output('datauristring').split(',')[1]; } catch (e) {}
+
+    // Record this signing for Nancy's Excel report (Netlify Forms — separate from email delivery).
+    try {
+      const params = new URLSearchParams();
+      params.append('form-name', 'signers');
+      params.append('name', nm);
+      params.append('email', s.email || '');
+      params.append('cell_phone', s.cellPhone || '');
+      params.append('address', s.address || '');
+      params.append('unit', s.unit || '');
+      params.append('city', s.city || '');
+      params.append('state', s.usState || '');
+      params.append('zip', s.zip || '');
+      params.append('worksite', s.worksite || '');
+      params.append('job_title', s.jobTitle || '');
+      params.append('pref_language', s.lang || '');
+      params.append('wupp_optin', s.wuppOptIn ? 'Yes' : 'No');
+      params.append('wupp_amount', s.wuppAmount || (s.wuppOther ? ('$' + s.wuppOther) : ''));
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() }).catch(() => {});
+    } catch (e) {}
+
+    // Primary delivery: serverless function emails the signed PDF to the organizer (and the member).
+    let viaFn = false, memberOk = false;
+    if (b64) {
+      try {
+        const res = await fetch(this.memberEndpoint(), {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ worksite: s.worksite, to: memberTo, name: nm, lang: s.lang, subject: subject, summary: body, pdfBase64: b64,
+            email: s.email, cellPhone: s.cellPhone, address: [s.address, s.city, [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', '),
+            jobTitle: s.jobTitle, wuppOptIn: !!s.wuppOptIn, wuppAmount: s.wuppAmount || (s.wuppOther ? ('$' + s.wuppOther) : '') })
+        });
+        if (res.ok) { const j = await res.json().catch(() => ({})); viaFn = !!j.ok; memberOk = !!j.memberOk; }
+      } catch (e) {}
+    }
+
+    // Fallback: Web3Forms notification (text only) if the function is unavailable.
+    let delivered = viaFn;
+    if (!viaFn) {
+      const key = this.accessKey();
+      if (key) {
+        try {
+          const build = (withFile) => {
+            const fd = new FormData();
+            fd.append('access_key', key);
+            fd.append('subject', subject);
+            fd.append('from_name', 'Digital Union Card');
+            fd.append('email', s.email || 'noreply@cmrjb.org');
+            fd.append('replyto', s.email || '');
+            fd.append('message', body);
+            if (withFile && b64) {
+              try { fd.append('attachment', new File([this.buildPdf().output('blob')], 'Union Card - ' + nm + '.pdf', { type: 'application/pdf' })); } catch (e) {}
+            }
+            return fd;
+          };
+          let res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: build(true) });
+          let j = await res.json().catch(() => ({}));
+          if (!(res.ok && j && j.success) && j && /pro feature|file upload/i.test(j.message || '')) {
+            res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: build(false) });
+            j = await res.json().catch(() => ({}));
+          }
+          delivered = !!(res.ok && j && j.success);
+        } catch (e) { delivered = false; }
+      }
+      if (!delivered) {
+        const href = 'mailto:' + this.organizerEmail() + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        try { window.location.href = href; } catch (e) {}
+      }
+    }
+
+    this.setState({ submitting: false, submitted: true, deliveredOnline: delivered, copyEmail: memberTo, emailSent: (viaFn && memberOk), emailSending: false });
+    const m = document.getElementById('wuMain'); if (m) m.scrollTop = 0;
+  }
+
+  reset() {
+    this.clearPad('memberSigPad');
+    this.setState({
+      step: 0, submitted: false, error: '',
+      firstName: '', lastName: '', mi: '', email: '', cellPhone: '',
+      address: '', unit: '', city: '', usState: '', zip: '',
+      worksite: '', jobTitle: '', prefLang: '',
+      agree: false, memberSig: null,
+      wuppOptIn: null, wuppAmount: '', wuppOther: '', wuppPrintName: '', wuppSigName: '',
+      contactMe: false,
+      copyEmail: '', emailSent: false, emailSending: false
+    });
+  }
+
+  pill(active) {
+    return { padding: '7px 11px', borderRadius: '999px', border: '1.5px solid ' + (active ? '#161412' : '#E2DACD'), background: active ? '#161412' : 'transparent', color: active ? '#fff' : '#8A8276', fontFamily: "'Archivo',sans-serif", fontWeight: '700', fontSize: '12px', letterSpacing: '.04em', cursor: 'pointer' };
+  }
+  chip(active) {
+    return { padding: '11px 15px', borderRadius: '11px', border: '1.5px solid ' + (active ? '#ED5F18' : '#E2DACD'), background: active ? '#ED5F18' : '#fff', color: active ? '#fff' : '#161412', fontWeight: active ? '700' : '500', fontSize: '15px', cursor: 'pointer', fontFamily: "'Public Sans',sans-serif" };
+  }
+  bigChoice(active) {
+    return { flex: '1', padding: '17px 10px', borderRadius: '14px', border: '2px solid ' + (active ? '#ED5F18' : '#E2DACD'), background: active ? '#FDEEE3' : '#fff', color: '#161412', fontWeight: '700', fontSize: '16px', cursor: 'pointer', fontFamily: "'Archivo',sans-serif" };
+  }
+
+  renderVals() {
+    const s = this.state, t = this.T[s.lang];
+    const keys = this.stepKeys(), cur = keys[s.step];
+    const show = (k) => ({ display: (!s.submitted && cur === k) ? 'block' : 'none' });
+    const tot = keys.length - 1;
+    const progressPct = cur === 'welcome' ? 0 : Math.round((s.step / tot) * 100);
+
+    const langs = [{ code: 'en', label: 'EN' }, { code: 'es', label: 'ES' }, { code: 'ht', label: 'HT' }, { code: 'zh', label: '中文' }];
+    const langChips = langs.map(l => ({ label: l.label, onClick: () => this.setState({ lang: l.code }), style: this.pill(s.lang === l.code) }));
+
+    const prefOpts = [{ v: 'English', l: 'English' }, { v: 'Español', l: 'Español' }, { v: 'Kreyòl', l: 'Kreyòl' }, { v: '中文', l: '中文' }, { v: 'Other', l: t.other }];
+    const prefLangChips = prefOpts.map(o => ({ label: o.l, onClick: () => this.setState({ prefLang: o.v, error: '' }), style: this.chip(s.prefLang === o.v) }));
+    const amountChips = this.AMOUNTS.map(a => ({ label: a, onClick: () => this.setState({ wuppAmount: a, wuppOther: '', error: '' }), style: this.chip(s.wuppAmount === a) }));
+
+    const on = {};
+    ['firstName', 'lastName', 'mi', 'email', 'cellPhone', 'address', 'unit', 'city', 'usState', 'zip', 'worksite', 'jobTitle', 'wuppOther', 'wuppPrintName', 'wuppSigName', 'copyEmail'].forEach(k => on[k] = this.set(k));
+    on.agree = this.set('agree'); on.contactMe = this.set('contactMe');
+
+    const navPrimaryLabel = cur === 'welcome' ? t.getStarted : (cur === 'review' ? (s.submitting ? t.submitting : t.submit) : t.continue);
+    const navPrimaryAction = cur === 'welcome' ? () => this.go(1) : (cur === 'review' ? () => this.submit() : () => this.go(1));
+
+    return {
+      t, v: s, langChips, prefLangChips, amountChips, on,
+      legal: this.LEGAL, legalNote: t.legalNote, hasLegalNote: s.lang !== 'en' && !!t.legalNote,
+      show: { welcome: show('welcome'), info: show('info'), agreement: show('agreement'), wupp: show('wupp'), review: show('review'), success: { display: s.submitted ? 'block' : 'none' } },
+      showProgress: { display: (cur === 'welcome' || s.submitted) ? 'none' : 'block' },
+      progressFillStyle: { width: progressPct + '%', height: '4px', background: '#ED5F18', transition: 'width .3s ease' },
+      footerStyle: { display: s.submitted ? 'none' : 'flex', flexDirection: 'column', padding: '13px 18px calc(13px + env(safe-area-inset-bottom))', background: '#fff', borderTop: '1.5px solid #ECE5D9', flex: 'none' },
+      successStyle: { display: s.submitted ? 'block' : 'none', textAlign: 'center', paddingTop: '36px' },
+      backStyle: { display: s.step > 0 ? 'inline-flex' : 'none', alignItems: 'center', justifyContent: 'center', padding: '15px 18px', borderRadius: '14px', border: '1.5px solid #E2DACD', background: '#fff', color: '#161412', fontFamily: "'Archivo',sans-serif", fontWeight: '700', fontSize: '15px', cursor: 'pointer' },
+      stepLabel: this.stepLabel(), today: this.today(),
+      navPrimaryLabel, navPrimaryAction, goBack: () => this.go(-1),
+      primaryStyle: { flex: '1', padding: '15px', borderRadius: '14px', border: 'none', background: '#ED5F18', color: '#fff', fontFamily: "'Archivo',sans-serif", fontWeight: '800', fontSize: '16px', letterSpacing: '.01em', cursor: 'pointer' },
+      incPolitical: this.includePolitical(),
+      wuppShowDetails: s.wuppOptIn === true,
+      wuppYesStyle: this.bigChoice(s.wuppOptIn === true), wuppNoStyle: this.bigChoice(s.wuppOptIn === false),
+      setWuppYes: () => this.setState({ wuppOptIn: true, error: '' }), setWuppNo: () => this.setState({ wuppOptIn: false, error: '' }),
+      clearMember: () => this.clearPad('memberSigPad'),
+      hasMemberSig: !!s.memberSig,
+      memberSigImg: s.memberSig ? React.createElement('img', { src: s.memberSig, style: { height: '46px', maxWidth: '170px', objectFit: 'contain' } }) : null,
+      downloadCopy: () => this.downloadPdf(),
+      rvName: [s.firstName, s.mi ? s.mi + '.' : '', s.lastName].filter(Boolean).join(' ') || t.notProvided,
+      rvEmail: s.email || t.notProvided, rvPhone: s.cellPhone || t.notProvided,
+      rvAddress: [[s.address, s.city].filter(Boolean).join(', '), [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ') || t.notProvided,
+      rvWorksite: s.worksite || t.notProvided, rvJob: s.jobTitle || t.notProvided, rvPref: s.prefLang || t.notProvided,
+      rvWupp: s.wuppOptIn ? (t.yes + ' — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '')) + '/mo') : t.skipped,
+      jumpInfo: () => this.jump('info'), jumpAgreement: () => this.jump('agreement'), jumpWupp: () => this.jump('wupp'),
+      submitAnother: () => this.reset(),
+      copyEmail: s.copyEmail, emailSent: s.emailSent, emailSending: s.emailSending, emailIdle: !s.emailSending && !s.emailSent,
+      emailCopyBtnLabel: s.emailSending ? t.emailCopySending : t.emailCopyBtn,
+      emailSentMsg: (t.emailCopySent || '').replace('{email}', s.copyEmail || s.email || ''),
+      emailMyCopy: () => this.emailMyCopy(),
+      error: s.error, hasError: !!s.error
+    };
+  }
+}
+</script>
+
+
+
+</body></html>

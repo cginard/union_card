@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Union card signer report</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAF9F5; font-family: -apple-system, BlinkMacSystemFont, "Public Sans", sans-serif; color: #161412; display: flex; justify-content: center; padding: 48px 20px; }
+  .card { width: 100%; max-width: 440px; background: #fff; border: 1.5px solid #E2DACD; border-radius: 16px; padding: 32px; }
+  h1 { font-size: 20px; font-weight: 800; margin: 0 0 6px; }
+  p.sub { color: #8A8276; font-size: 14px; margin: 0 0 28px; }
+  label { display: block; font-weight: 700; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #8A8276; margin-bottom: 6px; }
+  .field { margin-bottom: 16px; }
+  input { width: 100%; padding: 12px 14px; border: 1.5px solid #E2DACD; border-radius: 10px; font-size: 15px; background: #fff; color: #161412; outline: none; }
+  input:focus { border-color: #ED5F18; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  button { width: 100%; margin-top: 8px; padding: 13px 14px; border: none; border-radius: 10px; background: #ED5F18; color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: default; }
+  button:hover:not(:disabled) { background: #d4530f; }
+  #msg { margin-top: 14px; font-size: 13px; }
+  #msg.error { color: #C0392B; }
+  #msg.ok { color: #2E7D32; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Signer report</h1>
+    <p class="sub">Download signed union cards from a date range as an Excel file.</p>
+    <div class="field">
+      <label for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password">
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="from">From</label>
+        <input id="from" type="date">
+      </div>
+      <div class="field">
+        <label for="to">To</label>
+        <input id="to" type="date">
+      </div>
+    </div>
+    <button id="go">Download Excel</button>
+    <div id="msg"></div>
+  </div>
+  <script>
+    const msg = document.getElementById('msg');
+    document.getElementById('go').addEventListener('click', async () => {
+      const btn = document.getElementById('go');
+      const password = document.getElementById('pw').value;
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+      msg.className = ''; msg.textContent = '';
+      if (!password) { msg.className = 'error'; msg.textContent = 'Enter the password.'; return; }
+      btn.disabled = true; btn.textContent = 'Preparing…';
+      try {
+        const res = await fetch('/.netlify/functions/report', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password, from, to }),
+        });
+        if (res.status === 401) { msg.className = 'error'; msg.textContent = 'Incorrect password.'; return; }
+        if (!res.ok) {
+          let detail = '';
+          try { detail = (await res.json()).error || ''; } catch (e) {}
+          msg.className = 'error'; msg.textContent = detail || ('Something went wrong (' + res.status + '). Try again.');
+          return;
+        }
+        const ct = res.headers.get('content-type') || '';
+        if (ct.includes('application/json')) {
+          const j = await res.json();
+          msg.className = 'error'; msg.textContent = j.error || 'No data returned.';
+          return;
+        }
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'union-card-signers.xlsx';
+        document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+        msg.className = 'ok'; msg.textContent = 'Downloaded.';
+      } catch (e) {
+        msg.className = 'error'; msg.textContent = 'Network error. Try again.';
+      } finally {
+        btn.disabled = false; btn.textContent = 'Download Excel';
+      }
+    });
+  </script>
+</body>
+</html>
