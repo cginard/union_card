@@ -12,7 +12,7 @@ Everything needed to run, edit, and deploy the card outside the design tool.
 site/            <- deploy this folder to Netlify, as-is
   index.html         the card app (this IS the editable source)
   support.js         runtime the app needs
-  assets/            fonts, logos, jsPDF library
+  assets/            fonts, logos, jsPDF library, self-hosted React/ReactDOM/Babel
   forms.html         declares the "signers" form to Netlify
   admin.html         password-protected Excel report page
   netlify.toml       Netlify config
@@ -28,6 +28,9 @@ reference/       <- data, not deployed
   worksite-rep-map.js
   Rep Instructions.docx
 
+scripts/
+  check-deploy.js  run before every deploy — see "Before you deploy" below
+
 backups/
   Union Card - Aug5 baseline.dc.html   known-good restore point
   Union Card - current live.dc.html    matches what is live now
@@ -37,14 +40,30 @@ backups/
 
 ## Deploying
 
-Drag the **`site` folder** onto Netlify Drop, or connect it to a Git repo and
-let Netlify build from it. There is no build step — these are plain static files.
+This repo (`github.com/cginard/union_card`) is connected to Netlify for continuous
+deployment: pushing to `main` triggers a deploy automatically. Netlify's project
+config uses **Base directory: `site`** and **Publish directory: `site`** — no
+build command, since these are plain static files.
 
-Important: deploy the folder's *contents* as the site root. `index.html` must be
-at the root, with `support.js` and `assets/` beside it.
+Important: `index.html` must be at the site root, with `support.js` and `assets/`
+beside it. Do **not** re-bundle `index.html` into a single self-contained file —
+that was the cause of the blank "This page requires JavaScript to display" screens
+on Aug 7, 2026.
 
-Do **not** re-bundle `index.html` into a single self-contained file. That was the
-cause of the blank "This page requires JavaScript to display" screens.
+React, ReactDOM, and Babel Standalone are self-hosted in `site/assets/` (as of
+Aug 7, 2026) rather than loaded live from unpkg.com, so the page no longer depends
+on a third-party CDN being reachable at load time.
+
+### Before you deploy
+
+Run the sanity checker — it catches the exact "files got merged" failure class
+from Aug 7, plus a few related issues, before anything ships:
+
+```
+node scripts/check-deploy.js
+```
+
+Exit code 0 means safe to deploy. Any failure means stop and fix first.
 
 ---
 
