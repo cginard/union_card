@@ -134,10 +134,21 @@ if (/unpkg\.com/.test(supportJs.replace(/\/\/.*$/gm, ''))) {
 
 // --- 6. Worksite list stays in sync between index.html and send-copy.js ---
 
+function decodeHtmlEntities(s) {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
 const sendCopy = readIfExists('netlify/functions/send-copy.js');
 if (sendCopy) {
   const dropdownSites = new Set(
-    [...indexHtml.matchAll(/<option value="([^"]+)">/g)].map((x) => x[1]).filter(Boolean)
+    [...indexHtml.matchAll(/<option value="([^"]+)">/g)]
+      .map((x) => decodeHtmlEntities(x[1]))
+      .filter(Boolean)
   );
   const repMapSites = new Set(
     [...sendCopy.matchAll(/^\s*"([^"]+)":\s*"[\w.+-]+@[\w.-]+"/gm)].map((x) => x[1])

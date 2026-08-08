@@ -105,7 +105,31 @@ Edit `site/index.html` directly. Its structure:
   all four language translations (`en`, `es`, `ht`, `zh`)
 - The PDF layout is built in the same script, in the download/PDF section
 
-The worksite list appears in two places: the dropdown in `index.html`, and the
-rep routing map in `netlify/functions/send-copy.js`. Update both when adding a shop.
+### Updating the worksite list
+
+**As of Aug 7 2026, the card is intentionally pilot-launched at only 8
+worksites**, with a full expansion to the ~223 real CMRJB worksites planned
+after about a month of testing. Don't add the rest of the list to the live
+dropdown until that expansion is actually approved.
+
+The dropdown in `index.html` and the rep routing map in
+`netlify/functions/send-copy.js` are both meant to be **generated** from
+`reference/worksite-map.json` (already the full, correct list) rather than
+hand-edited separately — that's what caused `index.html`'s dropdown and
+`send-copy.js`'s rep map to drift out of sync in the first place. When the
+real expansion is approved, update `reference/worksite-map.json` if needed
+(or regenerate it from the CSV) and run:
+
+```
+node scripts/generate-worksites.js
+node scripts/check-deploy.js
+```
+
+This replaces the *entire* dropdown, so only run it once the pilot period is
+over and the full list is meant to go live. Until then, if a pilot-site rep
+email needs fixing, edit `reference/worksite-map.json` for the record, and
+hand-edit the same entry in both `index.html`'s 8 `<option>` tags and
+`send-copy.js`'s map to match — `scripts/check-deploy.js` will warn you if
+they drift apart.
 
 **Before any edit, copy the file first.** That is what was missing today.
