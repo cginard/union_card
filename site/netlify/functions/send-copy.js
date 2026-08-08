@@ -273,6 +273,20 @@ function escapeHtml(str) {
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+// Netlify's automatic Blobs credential injection doesn't reach this function
+// (it uses the classic Lambda-compatible handler signature), so we pass
+// siteID/token explicitly. Reuses the same NETLIFY_API_TOKEN and SITE_ID
+// already configured for report.js -- no separate setup needed.
+function getSignedCardsStore() {
+  const { getStore } = require('@netlify/blobs');
+  const siteID = process.env.SITE_ID || process.env.NETLIFY_SITE_ID;
+  const token = process.env.NETLIFY_API_TOKEN;
+  if (!siteID || !token) {
+    throw new Error('SITE_ID and/or NETLIFY_API_TOKEN not configured (same env vars report.js uses)');
+  }
+  return getStore({ name: 'signed-cards', siteID, token });
+}
+
 exports.handler = async (event) => {
   // GET = status check. Open the function URL in a browser to see if it's
   // deployed and whether it can see your Resend key. Never exposes the key.
@@ -284,8 +298,7 @@ exports.handler = async (event) => {
     // without touching any real card data.
     let blobsStatus = 'not tested';
     try {
-      const { getStore } = require('@netlify/blobs');
-      const store = getStore('signed-cards');
+      const store = getSignedCardsStore();
       const testKey = '__healthcheck__';
       await store.set(testKey, 'ok-' + Date.now());
       const readBack = await store.get(testKey);
@@ -335,8 +348,7 @@ exports.handler = async (event) => {
   let archiveId = null;
   let archived = false;
   try {
-    const { getStore } = require('@netlify/blobs');
-    const store = getStore('signed-cards');
+    const store = getSignedCardsStore();
     const safeName = (data.name || 'member').toString().replace(/[^a-z0-9]+/gi, '-').toLowerCase().slice(0, 60);
     archiveId = new Date().toISOString().replace(/[:.]/g, '-') + '--' + safeName;
     await store.set(archiveId, Buffer.from(pdfBase64, 'base64'), {
