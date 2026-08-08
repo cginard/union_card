@@ -278,6 +278,22 @@ exports.handler = async (event) => {
   // deployed and whether it can see your Resend key. Never exposes the key.
   if (event.httpMethod === 'GET') {
     const hasKey = !!process.env.RESEND_API_KEY;
+
+    // Blobs healthcheck: writes and reads back a small, non-member test key.
+    // Confirms @netlify/blobs bundled correctly and the store is reachable,
+    // without touching any real card data.
+    let blobsStatus = 'not tested';
+    try {
+      const { getStore } = require('@netlify/blobs');
+      const store = getStore('signed-cards');
+      const testKey = '__healthcheck__';
+      await store.set(testKey, 'ok-' + Date.now());
+      const readBack = await store.get(testKey);
+      blobsStatus = readBack ? 'working' : 'wrote but got no value back on read';
+    } catch (e) {
+      blobsStatus = 'FAILED: ' + (e && e.message ? e.message : String(e));
+    }
+
     return {
       statusCode: 200,
       headers: { 'content-type': 'application/json' },
@@ -286,6 +302,7 @@ exports.handler = async (event) => {
         resendKeyVisible: hasKey,
         fromAddress: process.env.CARD_FROM_EMAIL || 'onboarding@resend.dev (Resend test sender)',
         organizer: process.env.ORGANIZER_EMAIL || 'members@cmrjb.org (default)',
+        blobsStatus,
         note: hasKey
           ? 'Key is visible. If members@cmrjb.org still gets no PDF, Resend is rejecting the send — verify a domain in Resend and set CARD_FROM_EMAIL to an address on it (or, before verifying, set ORGANIZER_EMAIL to the exact email you signed up to Resend with).'
           : 'RESEND_API_KEY is NOT visible to this function. In Netlify add it with the Functions scope, then trigger a new deploy.',
@@ -309,6 +326,31 @@ exports.handler = async (event) => {
   }
   // Note: the submission record for Nancy's Excel report is saved client-side to a Netlify
   // Form (see index.html) rather than here, so it doesn't depend on this email step succeeding.
+
+  // Archive the signed PDF to Netlify Blobs — this is the one durable, backed-up copy of
+  // the actual signature, independent of whether any of the emails below succeed or an
+  // inbox later gets cleaned out. Runs before the email sends and never blocks or fails
+  // them: if Blobs errors for any reason, we log it and continue, we don't 500 the request,
+  // because the organizer/member emails are still the immediate priority.
+  let archiveId = null;
+  let archived = false;
+  try {
+    const { getStore } = require('@netlify/blobs');
+    const store = getStore('signed-cards');
+    const safeName = (data.name || 'member').toString().replace(/[^a-z0-9]+/gi, '-').toLowerCase().slice(0, 60);
+    archiveId = new Date().toISOString().replace(/[:.]/g, '-') + '--' + safeName;
+    await store.set(archiveId, Buffer.from(pdfBase64, 'base64'), {
+      metadata: {
+        name: (data.name || '').toString().slice(0, 120),
+        email: (data.email || '').toString().slice(0, 120),
+        worksite: (data.worksite || '').toString().slice(0, 200),
+        submittedAt: new Date().toISOString(),
+      },
+    });
+    archived = true;
+  } catch (e) {
+    console.error('[send-copy] FAILED to archive signed PDF to Blobs:', e);
+  }
 
   const from = process.env.CARD_FROM_EMAIL || 'Workers United <onboarding@resend.dev>';
   const backstop = (process.env.ORGANIZER_EMAIL || 'members@cmrjb.org').trim();
@@ -350,6 +392,6 @@ exports.handler = async (event) => {
 
   return {
     statusCode: orgOk ? 200 : 502,
-    body: JSON.stringify({ ok: orgOk, memberOk }),
+    body: JSON.stringify({ ok: orgOk, memberOk, archived, archiveId }),
   };
 };
