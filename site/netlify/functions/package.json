@@ -1,0 +1,8 @@
+{
+  "name": "union-card-functions",
+  "private": true,
+  "description": "Dependencies for site/netlify/functions/*.js only — not the static site itself, which has no build step.",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

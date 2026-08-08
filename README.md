@@ -82,7 +82,7 @@ Site configuration -> Environment variables.
 
 ---
 
-## Who receives a signed card
+## Who receives a signed card, and where the signed PDF lives
 
 `send-copy.js` sends each signed PDF to:
 
@@ -92,7 +92,23 @@ Site configuration -> Environment variables.
 4. The member, at the address they entered
 
 Submissions are also recorded in Netlify Forms under the form name **`signers`**,
-independently of whether the email step succeeds.
+independently of whether the email step succeeds. **Netlify Forms only stores the
+text fields (name, contact info, worksite, etc.) — never the signature image or
+the PDF.**
+
+As of Aug 7 2026, every signed PDF is also archived to **Netlify Blobs** (store
+name `signed-cards`), independent of whether any of the above emails succeed.
+This is the one durable, backed-up copy of the actual signature — needed for
+retention purposes (e.g. NLRB), since email inboxes alone aren't a reliable
+long-term record. Browse and download archived PDFs from the Netlify dashboard:
+**Project configuration → Blobs → `signed-cards`**. Each entry's key is a
+timestamp + member name; metadata on each entry includes name, email, worksite,
+and submission time.
+
+To confirm the archiving is working without submitting a real card, open
+`https://unioncardwu.com/.netlify/functions/send-copy` in a browser (a plain GET
+request) — the JSON response includes a `blobsStatus` field that should say
+`"working"`.
 
 ---
 

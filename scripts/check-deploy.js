@@ -37,6 +37,7 @@ const REQUIRED_FILES = [
   'admin.html',
   'netlify/functions/send-copy.js',
   'netlify/functions/report.js',
+  'netlify/functions/package.json',
 ];
 
 for (const f of REQUIRED_FILES) {
@@ -159,6 +160,16 @@ if (sendCopy) {
       `${missingFromRepMap.length} worksite(s) in index.html's dropdown have no entry in ` +
       'send-copy.js\'s WORKSITE_REP_MAP, so a signed card from that worksite won\'t reach a rep: ' +
       missingFromRepMap.slice(0, 5).join(', ') + (missingFromRepMap.length > 5 ? ', ...' : '')
+    );
+  }
+
+  // Signed PDFs are only durably stored if send-copy.js actually archives them to Blobs —
+  // if this require ever gets removed (e.g. during a future edit), submissions silently go
+  // back to living only in scattered email inboxes, with nothing catching it.
+  if (!sendCopy.includes("require('@netlify/blobs')") && !sendCopy.includes('require("@netlify/blobs")')) {
+    fail(
+      'send-copy.js no longer archives signed PDFs to Netlify Blobs (no require of ' +
+      '"@netlify/blobs" found) — signed cards would only exist in email inboxes again.'
     );
   }
 }
