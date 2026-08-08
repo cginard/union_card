@@ -3,3 +3,9 @@
 
 [build]
   functions = "netlify/functions"
+  # netlify/functions/package.json declares @netlify/blobs. Netlify's automatic
+  # dependency install only runs on a package.json at the base directory, not a
+  # nested one, so we install it explicitly here, scoped to just that folder —
+  # keeps node_modules out of the published static site (which is the same
+  # folder as the base directory in this project).
+  command = "npm install --prefix netlify/functions"
