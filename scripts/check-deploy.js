@@ -104,12 +104,17 @@ if (!/<script[^>]*data-dc-script/.test(indexHtml)) {
 
 // --- 4. Every local asset index.html references actually exists -----------
 
+// Client-side routes handled by netlify.toml redirects (rewritten to index.html,
+// not real files on disk) -- not asset references, so skip them here.
+const CLIENT_ROUTES = ['/wupp'];
+
 const assetRefRe = /(?:src|href)\s*=\s*"([^"]+)"/g;
 let m;
 const checked = new Set();
 while ((m = assetRefRe.exec(indexHtml))) {
   const ref = m[1];
   if (/^https?:\/\//.test(ref) || ref.startsWith('data:') || ref.startsWith('#')) continue;
+  if (CLIENT_ROUTES.includes(ref)) continue;
   if (checked.has(ref)) continue;
   checked.add(ref);
   const p = path.join(SITE, ref);
@@ -172,6 +177,62 @@ if (sendCopy) {
       '"@netlify/blobs" found) — signed cards would only exist in email inboxes again.'
     );
   }
+}
+
+// --- 7b. WUPP-only mode (existing members, /wupp) stays wired up -----------
+// Added Aug 10, 2026 alongside the /wupp flow. Catches regressions where the
+// route, translations, or renderVals() bindings for that mode get dropped.
+
+const netlifyToml = readIfExists('netlify.toml');
+if (netlifyToml) {
+  if (!/from\s*=\s*"\/wupp"/.test(netlifyToml) || !/to\s*=\s*"\/index\.html"/.test(netlifyToml)) {
+    fail('netlify.toml is missing the /wupp -> /index.html redirect that WUPP-only mode depends on.');
+  }
+} else {
+  fail('site/netlify.toml not found — cannot verify the /wupp redirect.');
+}
+
+if (!/isWuppOnly\s*\(\)/.test(indexHtml)) {
+  fail('index.html is missing the isWuppOnly() method that WUPP-only mode routing depends on.');
+}
+
+const WUPP_ONLY_KEYS = [
+  'wuppOnlyKicker', 'wuppOnlyTitle', 'wuppOnlyBody',
+  'errWupp', 'errWuppDetails',
+  'wuppOnlySuccessTitle', 'wuppOnlySuccessBody',
+  'existingMemberLink',
+];
+const LANGS = ['en', 'es', 'ht', 'zh'];
+for (const key of WUPP_ONLY_KEYS) {
+  const count = (indexHtml.match(new RegExp('\\b' + key + ':', 'g')) || []).length;
+  if (count < LANGS.length) {
+    fail(`index.html's "${key}" WUPP-only translation is present in only ${count}/${LANGS.length} language blocks.`);
+  }
+}
+
+const RENDER_VALS_BINDINGS = [
+  'activeKicker', 'activeTitle', 'activeBody',
+  'showJoinStatement', 'showMembershipSection',
+  'activeSuccessTitle', 'activeSuccessBody',
+];
+for (const binding of RENDER_VALS_BINDINGS) {
+  if (!indexHtml.includes(binding + ':')) {
+    fail(`index.html's renderVals() does not compute "${binding}", but the template references it — WUPP-only mode would render blank.`);
+  }
+}
+
+const formsHtml = readIfExists('forms.html');
+if (formsHtml && !/name="card_type"/.test(formsHtml)) {
+  warn('forms.html has no card_type field — Nancy\'s Excel report won\'t be able to tell membership vs WUPP-only signups apart.');
+}
+
+if (sendCopy && !/cardType/.test(sendCopy)) {
+  warn('send-copy.js does not reference cardType — WUPP-only submissions may get membership-card wording in emails.');
+}
+
+const reportJs = readIfExists('netlify/functions/report.js');
+if (reportJs && !/card_type/.test(reportJs)) {
+  warn('report.js does not reference card_type — the Excel export won\'t show a Card type column.');
 }
 
 // --- 7. Basic size sanity (catches silent truncation) ----------------------

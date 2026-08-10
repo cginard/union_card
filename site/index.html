@@ -394,14 +394,19 @@
     <!-- WELCOME -->
     <section style="{{ show.welcome }}">
       <img src="assets/cmrjb-seal.png" alt="Workers United — Chicago &amp; Midwest Regional Joint Board" style="width:128px;height:auto;display:block;margin:4px 0 18px">
-      <div style="font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: #ED5F18; margin-bottom: 12px">{{ t.welcomeKicker }}</div>
-      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;color:#161412">{{ t.welcomeTitle }}</h1>
-      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 0 22px">{{ t.welcomeBody }}</p>
-      <div style="background:#161412;border-radius:16px;padding:22px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px">
-        <img src="assets/wu-mark.png" alt="" style="height:22px;width:auto;display:block;flex:none;margin-top:2px">
-        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.32;color:#fff;margin:0">{{ t.joinStatement }}</p>
-      </div>
+      <div style="font-family: 'Archivo',sans-serif; font-weight: 800; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: #ED5F18; margin-bottom: 12px">{{ activeKicker }}</div>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;color:#161412">{{ activeTitle }}</h1>
+      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 0 22px">{{ activeBody }}</p>
+      <sc-if value="{{ showJoinStatement }}" hint-placeholder-val="{{ true }}">
+        <button type="button" onClick="{{ navPrimaryAction }}" style="background:#161412;border:none;border-radius:16px;padding:22px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;cursor:pointer">
+          <img src="assets/wu-mark.png" alt="" style="height:22px;width:auto;display:block;flex:none;margin-top:2px">
+          <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.32;color:#fff;margin:0">{{ t.joinStatement }}</p>
+        </button>
+      </sc-if>
       <p style="font-size:13.5px;color:#8A8276;margin:0;text-align:center">{{ t.welcomeReassure }}</p>
+      <sc-if value="{{ showJoinStatement }}" hint-placeholder-val="{{ true }}">
+        <a href="/wupp" style="display:block;margin-top:22px;text-align:center;font-size:13.5px;color:#8A8276;text-decoration:underline;text-underline-offset:2px">{{ t.existingMemberLink }}</a>
+      </sc-if>
     </section>
 
     <!-- INFO -->
@@ -582,18 +587,20 @@
         </div>
       </div>
 
-      <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #F0EAE0">
-          <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#161412">{{ t.sectionMember }}</span>
-          <button type="button" onClick="{{ jumpAgreement }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;cursor:pointer">{{ t.edit }}</button>
+      <sc-if value="{{ showMembershipSection }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #F0EAE0">
+            <span style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:#161412">{{ t.sectionMember }}</span>
+            <button type="button" onClick="{{ jumpAgreement }}" style="background:none;border:none;color:#ED5F18;font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;cursor:pointer">{{ t.edit }}</button>
+          </div>
+          <div style="padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:14px">
+            <span style="font-size:13px;color:#A89F8F">{{ t.signature }}</span>
+            <sc-if value="{{ hasMemberSig }}" hint-placeholder-val="{{ true }}">
+              {{ memberSigImg }}
+            </sc-if>
+          </div>
         </div>
-        <div style="padding:12px 15px;display:flex;justify-content:space-between;align-items:center;gap:14px">
-          <span style="font-size:13px;color:#A89F8F">{{ t.signature }}</span>
-          <sc-if value="{{ hasMemberSig }}" hint-placeholder-val="{{ true }}">
-            {{ memberSigImg }}
-          </sc-if>
-        </div>
-      </div>
+      </sc-if>
 
       <sc-if value="{{ incPolitical }}" hint-placeholder-val="{{ true }}">
         <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:14px;overflow:hidden;margin-bottom:20px">
@@ -620,8 +627,8 @@
       <div style="width:84px;height:84px;border-radius:50%;background:#ED5F18;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;animation:wuPop .5s ease both">
         <span style="color:#fff;font-size:44px;font-weight:900;line-height:1">✓</span>
       </div>
-      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:32px;letter-spacing:-.02em;margin:0 0 12px;color:#161412">{{ t.successTitle }}</h2>
-      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 auto 24px;max-width:300px">{{ t.successBody }}</p>
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:32px;letter-spacing:-.02em;margin:0 0 12px;color:#161412">{{ activeSuccessTitle }}</h2>
+      <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 auto 24px;max-width:300px">{{ activeSuccessBody }}</p>
       <div style="background:#fff;border:1.5px solid #ECE5D9;border-radius:16px;padding:18px;margin:0 auto 16px;max-width:340px;text-align:left">
         <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#8A8276;margin-bottom:11px">{{ t.emailCopyTitle }}</div>
         <sc-if value="{{ emailSending }}" hint-placeholder-val="{{ false }}">
@@ -689,7 +696,7 @@ class Component extends DCLogic {
     p3: `This authorization is voluntary and is not a condition of my employment, and I can decline to agree to it without reprisal. I understand that all members benefit from solidarity among workers because it helps build a strong union that is able to plan and fight for the future.`,
     wuppTaxTop: `Contributions or gifts to Workers United or one of its affiliates are not tax deductible as charitable contributions.`,
     wuppLead: `Yes! I want to hold politicians accountable to working families and I know we can only do that if we stand together.`,
-    wuppAuth: `I hereby authorize my employer to withhold the indicated amount per month to forward to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows that I agree with the terms below.`,
+    wuppAuth: `I hereby authorize my employer to withhold the indicated amount per pay period to forward to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows that I agree with the terms below.`,
     wuppFine: `This authorization is made voluntarily based on my specific understanding that: 1) I am not required to sign this form or make voluntary contributions to WUPP as a condition of my employment or membership in the union; 2) I may refuse to contribute without reprisal; 3) Under law, only union members and executive / administrative staff who are U.S. Citizens or lawful permanent residents are eligible to contribute to WUPP; 4) The contribution amounts on this form are merely suggestions, and I may contribute more or less by this or other means without fear of favor or disadvantage from Workers United or my employer; 5) WUPP uses the money it receives for political purposes – including, but not limited to, making contributions to and expenditures on behalf of candidates for federal, state, and local offices – and addressing political issues of public importance. This authorization shall remain in effect until revoked by me in writing via U.S. mail to Workers United.`,
     wuppTaxBottom: `Contributions or gifts to WUPP are not tax deductible as charitable contributions.`
   };
@@ -697,8 +704,10 @@ class Component extends DCLogic {
   T = {
     en: {
       welcomeKicker: 'Official Union Card', welcomeTitle: 'Join Workers United', welcomeBody: 'Sign your union card right here on your phone — it takes about 3 minutes.',
+      wuppOnlyKicker: 'For Current Members', wuppOnlyTitle: 'Sign WUPP', wuppOnlyBody: 'Already a Workers United member? Authorize a contribution per pay period to Workers United for Political Power — it takes about 2 minutes.',
       joinStatement: 'Yes, I want to join with my fellow employees and become a member of Workers United.',
       welcomeReassure: 'Joining is voluntary and confidential.',
+      existingMemberLink: 'Already a member? Sign a WUPP card instead',
       getStarted: 'Get started', back: 'Back', continue: 'Continue',
       s1Title: 'Your information', s1Sub: 'Tell us how to reach you.',
       firstName: 'First name', lastName: 'Last name', mi: 'M.I.', email: 'Email', cellPhone: 'Cell phone',
@@ -711,7 +720,7 @@ class Component extends DCLogic {
       agreeLabel: 'I have read and agree to the membership agreement above.', signature: 'Signature', signHelp: 'Sign with your finger', clear: 'Clear', date: 'Date',
       s3Title: 'Workers United for Political Power', s3Sub: 'Optional — you can skip this step.',
       wuppLead: 'Yes! I want to hold politicians accountable to working families, and I know we can only do that if we stand together.',
-      wuppAuth: 'I authorize my employer to withhold the amount below each month and forward it to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows I agree to the terms.',
+      wuppAuth: 'I authorize my employer to withhold the amount below each pay period and forward it to CMRJB as a contribution to Workers United for Political Power (WUPP). My signature shows I agree to the terms.',
       wuppTaxTop: 'Contributions or gifts to Workers United or one of its affiliates are not tax deductible as charitable contributions.',
       wuppFine: 'This authorization is made voluntarily based on my specific understanding that: 1) I am not required to sign this form or make voluntary contributions to WUPP as a condition of my employment or membership in the union; 2) I may refuse to contribute without reprisal; 3) Under law, only union members and executive / administrative staff who are U.S. Citizens or lawful permanent residents are eligible to contribute to WUPP; 4) The contribution amounts on this form are merely suggestions, and I may contribute more or less by this or other means without fear of favor or disadvantage from Workers United or my employer; 5) WUPP uses the money it receives for political purposes \u2013 including, but not limited to, making contributions to and expenditures on behalf of candidates for federal, state, and local offices \u2013 and addressing political issues of public importance. This authorization shall remain in effect until revoked by me in writing via U.S. mail to Workers United.',
       wuppTaxBottom: 'Contributions or gifts to WUPP are not tax deductible as charitable contributions.',
@@ -721,15 +730,19 @@ class Component extends DCLogic {
       contactMe: 'Contact me about opportunities to get involved.', submit: 'Submit my card', submitting: 'Sending…',
       sectionMember: 'Membership', sectionContact: 'Contact', sectionPolitical: 'Political Power',
       notProvided: '—', yes: 'Yes', no: 'No', skipped: 'Skipped',
-      errName: 'Please enter your first and last name.', errInfo: 'Please fill in all fields to continue.', errWorksite: 'Please select your worksite.', errAgree: 'Please check the box to agree.', errSign: 'Please add your signature.',
+      errName: 'Please enter your first and last name.', errInfo: 'Please fill in all fields to continue.', errWorksite: 'Please select your worksite.', errAgree: 'Please check the box to agree.', errSign: 'Please add your signature.', errWupp: 'Please choose Yes or Not now to continue.', errWuppDetails: 'Please choose an amount, print your name, and sign to continue.',
       employerNoteTitle: 'Give your employer a copy now', employerNote: 'Federal law requires your employer to receive a copy of your signed card right away. Tap below to download or print it and hand it to your employer today.',
-      successTitle: 'You\u2019re in.', successBody: 'Your union card has been recorded. Your Union Representative or Shop Steward will be contacting you soon. In solidarity!', successAgain: 'Submit another card', emailCopyTitle: 'Email me my signed copy', emailCopyBtn: 'Send to my email', emailCopySending: 'Sending\u2026', emailCopySent: 'Sent to {email}', emailCopySendingMsg: 'Emailing your copy\u2026',
+      successTitle: 'You\u2019re in.', successBody: 'Your union card has been recorded. Your Union Representative or Shop Steward will be contacting you soon. In solidarity!',
+      wuppOnlySuccessTitle: 'Thank you.', wuppOnlySuccessBody: 'Your WUPP authorization has been recorded. In solidarity!',
+      successAgain: 'Submit another card', emailCopyTitle: 'Email me my signed copy', emailCopyBtn: 'Send to my email', emailCopySending: 'Sending\u2026', emailCopySent: 'Sent to {email}', emailCopySendingMsg: 'Emailing your copy\u2026',
       emailHint: 'Tapping submit opens your email app to send your card to an organizer.'
     },
     es: {
       welcomeKicker: 'Tarjeta Sindical Oficial', welcomeTitle: 'Únete a Workers United', welcomeBody: 'Firma tu tarjeta sindical aquí en tu teléfono — toma unos 3 minutos.',
+      wuppOnlyKicker: 'Para miembros actuales', wuppOnlyTitle: 'Firma WUPP', wuppOnlyBody: '¿Ya eres miembro de Workers United? Autoriza una contribución por período de pago a Workers United for Political Power — toma unos 2 minutos.',
       joinStatement: 'Sí, quiero unirme a mis compañeros de trabajo y hacerme miembro de Workers United.',
       welcomeReassure: 'Unirse es voluntario y confidencial.',
+      existingMemberLink: '¿Ya eres miembro? Firma una tarjeta WUPP en su lugar',
       getStarted: 'Comenzar', back: 'Atrás', continue: 'Continuar',
       s1Title: 'Tu información', s1Sub: 'Dinos cómo contactarte.',
       firstName: 'Nombre', lastName: 'Apellido', mi: 'Inicial', email: 'Correo electrónico', cellPhone: 'Teléfono celular',
@@ -742,7 +755,7 @@ class Component extends DCLogic {
       agreeLabel: 'He leído y acepto el acuerdo de membresía anterior.', signature: 'Firma', signHelp: 'Firma con tu dedo', clear: 'Borrar', date: 'Fecha',
       s3Title: 'Workers United for Political Power', s3Sub: 'Opcional — puedes omitir este paso.',
       wuppLead: '¡Sí! Quiero exigir cuentas a los políticos ante las familias trabajadoras, y sé que solo podemos lograrlo si estamos unidos.',
-      wuppAuth: 'Autorizo a mi empleador a retener la cantidad indicada cada mes y enviarla a CMRJB como contribución a Workers United for Political Power (WUPP). Mi firma muestra que acepto los términos.',
+      wuppAuth: 'Autorizo a mi empleador a retener la cantidad indicada cada período de pago y enviarla a CMRJB como contribución a Workers United for Political Power (WUPP). Mi firma muestra que acepto los términos.',
       wuppTaxTop: 'Las contribuciones o donaciones a Workers United o a una de sus afiliadas no son deducibles de impuestos como contribuciones caritativas.',
       wuppFine: 'Esta autorización se hace voluntariamente con base en mi entendimiento específico de que: 1) No estoy obligado/a a firmar este formulario ni a hacer contribuciones voluntarias a WUPP como condición de mi empleo o membresía en el sindicato; 2) Puedo negarme a contribuir sin represalias; 3) Por ley, solo los miembros del sindicato y el personal ejecutivo/administrativo que sean ciudadanos de EE. UU. o residentes permanentes legales pueden contribuir a WUPP; 4) Los montos de contribución en este formulario son solo sugerencias, y puedo contribuir más o menos por este u otros medios sin temor a favoritismo o desventaja por parte de Workers United o mi empleador; 5) WUPP usa el dinero que recibe para fines políticos \u2013 incluyendo, entre otros, hacer contribuciones y gastos en nombre de candidatos a cargos federales, estatales y locales \u2013 y abordar asuntos políticos de importancia pública. Esta autorización permanecerá vigente hasta que yo la revoque por escrito por correo postal de EE. UU. a Workers United.',
       wuppTaxBottom: 'Las contribuciones o donaciones a WUPP no son deducibles de impuestos como contribuciones caritativas.',
@@ -752,15 +765,19 @@ class Component extends DCLogic {
       contactMe: 'Quiero que me contacten sobre oportunidades para participar.', submit: 'Enviar mi tarjeta', submitting: 'Enviando…',
       sectionMember: 'Membresía', sectionContact: 'Contacto', sectionPolitical: 'Poder Político',
       notProvided: '—', yes: 'Sí', no: 'No', skipped: 'Omitido',
-      errName: 'Por favor ingresa tu nombre y apellido.', errInfo: 'Por favor completa todos los campos para continuar.', errWorksite: 'Por favor selecciona tu lugar de trabajo.', errAgree: 'Por favor marca la casilla para aceptar.', errSign: 'Por favor agrega tu firma.',
+      errName: 'Por favor ingresa tu nombre y apellido.', errInfo: 'Por favor completa todos los campos para continuar.', errWorksite: 'Por favor selecciona tu lugar de trabajo.', errAgree: 'Por favor marca la casilla para aceptar.', errSign: 'Por favor agrega tu firma.', errWupp: 'Por favor elige Sí o Ahora no para continuar.', errWuppDetails: 'Por favor elige un monto, escribe tu nombre en letra de molde y firma para continuar.',
       employerNoteTitle: 'Entrega una copia a tu empleador ahora', employerNote: 'La ley federal exige que tu empleador reciba una copia de tu tarjeta firmada de inmediato. Toca abajo para descargarla o imprimirla y entrégasela hoy mismo.',
-      successTitle: '¡Ya eres miembro!', successBody: 'Tu tarjeta sindical ha sido registrada. Tu Representante Sindical o Delegado de Taller se pondrá en contacto contigo pronto. ¡En solidaridad!', successAgain: 'Enviar otra tarjeta', emailCopyTitle: 'Envíenme mi copia firmada', emailCopyBtn: 'Enviar a mi correo', emailCopySending: 'Enviando\u2026', emailCopySent: 'Enviado a {email}', emailCopySendingMsg: 'Enviando tu copia\u2026',
+      successTitle: '¡Ya eres miembro!', successBody: 'Tu tarjeta sindical ha sido registrada. Tu Representante Sindical o Delegado de Taller se pondrá en contacto contigo pronto. ¡En solidaridad!',
+      wuppOnlySuccessTitle: 'Gracias.', wuppOnlySuccessBody: 'Tu autorización de WUPP ha sido registrada. ¡En solidaridad!',
+      successAgain: 'Enviar otra tarjeta', emailCopyTitle: 'Envíenme mi copia firmada', emailCopyBtn: 'Enviar a mi correo', emailCopySending: 'Enviando\u2026', emailCopySent: 'Enviado a {email}', emailCopySendingMsg: 'Enviando tu copia\u2026',
       emailHint: 'Al enviar se abrirá tu aplicación de correo para enviar tu tarjeta a un organizador.'
     },
     ht: {
       welcomeKicker: 'Kat Sendika Ofisyèl', welcomeTitle: 'Antre nan Workers United', welcomeBody: 'Siyen kat sendika ou la sou telefòn ou — li pran anviwon 3 minit.',
+      wuppOnlyKicker: 'Pou manm ki deja la', wuppOnlyTitle: 'Siyen WUPP', wuppOnlyBody: 'Ou se deja yon manm Workers United? Otorize yon kontribisyon chak peryòd peman bay Workers United for Political Power — li pran anviwon 2 minit.',
       joinStatement: 'Wi, mwen vle antre ansanm ak kòlèg travay mwen yo epi vin manm Workers United.',
       welcomeReassure: 'Antre se volontè e konfidansyèl.',
+      existingMemberLink: 'Ou se deja yon manm? Siyen yon kat WUPP pito',
       getStarted: 'Kòmanse', back: 'Tounen', continue: 'Kontinye',
       s1Title: 'Enfòmasyon ou', s1Sub: 'Di nou kijan pou nou kontakte ou.',
       firstName: 'Prenon', lastName: 'Siyati', mi: 'Inisyal', email: 'Imèl', cellPhone: 'Telefòn selilè',
@@ -773,7 +790,7 @@ class Component extends DCLogic {
       agreeLabel: 'Mwen li epi mwen dakò ak akò manm ki anwo a.', signature: 'Siyati', signHelp: 'Siyen ak dwèt ou', clear: 'Efase', date: 'Dat',
       s3Title: 'Workers United for Political Power', s3Sub: 'Si ou vle — ou ka sote etap sa a.',
       wuppLead: 'Wi! Mwen vle fè politisyen yo responsab devan fanmi k ap travay, e mwen konnen nou ka fè sa sèlman si nou ini.',
-      wuppAuth: 'Mwen otorize patwon mwen pou l kenbe kantite ki anba a chak mwa epi voye l bay CMRJB kòm kontribisyon pou Workers United for Political Power (WUPP). Siyati mwen montre mwen dakò ak kondisyon yo.',
+      wuppAuth: 'Mwen otorize patwon mwen pou l kenbe kantite ki anba a chak peryòd peman epi voye l bay CMRJB kòm kontribisyon pou Workers United for Political Power (WUPP). Siyati mwen montre mwen dakò ak kondisyon yo.',
       wuppTaxTop: 'Kontribisyon oswa kado bay Workers United oswa youn nan afilye li yo pa dediktib nan taks kòm kontribisyon charitab.',
       wuppFine: 'Otorizasyon sa a fèt volontèman dapre konprann espesifik mwen ke: 1) Mwen pa oblije siyen fòm sa a ni fè kontribisyon volontè bay WUPP kòm yon kondisyon pou travay mwen oswa manm mwen nan sendika a; 2) Mwen ka refize kontribye san reprezay; 3) Dapre lalwa, se sèlman manm sendika ak anplwaye egzekitif/administratif ki se sitwayen Etazini oswa rezidan pèmanan legal ki kapab kontribye bay WUPP; 4) Montan kontribisyon ki sou fòm sa a se sèlman sijesyon, e mwen ka kontribye plis oswa mwens pa mwayen sa a oswa lòt mwayen san krèt fè favè oswa dezavantaj nan men Workers United oswa patwon mwen; 5) WUPP itilize lajan li resevwa pou rezon politik \u2013 ki gen ladann, men pa limite a, fè kontribisyon ak depans pou kandida pou pòs federal, eta, ak lokal \u2013 epi trete pwoblèm politik ki enpòtan pou piblik la. Otorizasyon sa a ap rete an vigè jiskaske mwen revoke l alekri pa lapòs Etazini bay Workers United.',
       wuppTaxBottom: 'Kontribisyon oswa kado bay WUPP pa dediktib nan taks kòm kontribisyon charitab.',
@@ -783,15 +800,17 @@ class Component extends DCLogic {
       contactMe: 'Kontakte mwen sou opòtinite pou patisipe.', submit: 'Voye kat mwen', submitting: 'Ap voye…',
       sectionMember: 'Manm', sectionContact: 'Kontak', sectionPolitical: 'Pouvwa Politik',
       notProvided: '—', yes: 'Wi', no: 'Non', skipped: 'Sote',
-      errName: 'Tanpri antre prenon ak siyati ou.', errInfo: 'Tanpri ranpli tout chan yo pou ou ka kontinye.', errWorksite: 'Tanpri chwazi kote ou travay.', errAgree: 'Tanpri make kazye a pou ou dakò.', errSign: 'Tanpri ajoute siyati ou.',
+      errName: 'Tanpri antre prenon ak siyati ou.', errInfo: 'Tanpri ranpli tout chan yo pou ou ka kontinye.', errWorksite: 'Tanpri chwazi kote ou travay.', errAgree: 'Tanpri make kazye a pou ou dakò.', errSign: 'Tanpri ajoute siyati ou.', errWupp: 'Tanpri chwazi Wi oswa Pa kounye a pou kontinye.', errWuppDetails: 'Tanpri chwazi yon montan, ekri non ou, epi siyen pou kontinye.',
       employerNoteTitle: 'Bay patwon ou yon kopi kounye a', employerNote: 'Lalwa federal egzije pou patwon ou resevwa yon kopi kat siyen ou an touswit. Peze anba a pou telechaje oswa enprime l epi remèt li bay patwon ou jodi a.',
-      successTitle: 'Ou ladann!', successBody: 'Yo anrejistre kat sendika ou. Reprezantan Sendika ou oswa Delege Atelye ou ap kontakte ou byento. Nan solidarite!', successAgain: 'Voye yon lòt kat', emailCopyTitle: 'Voye kopi mwen siyen an ban mwen', emailCopyBtn: 'Voye l nan imèl mwen', emailCopySending: 'Ap voye\u2026', emailCopySent: 'Voye bay {email}', emailCopySendingMsg: 'N ap voye kopi ou\u2026',
+      successTitle: 'Ou ladann!', successBody: 'Yo anrejistre kat sendika ou. Reprezantan Sendika ou oswa Delege Atelye ou ap kontakte ou byento. Nan solidarite!', wuppOnlySuccessTitle: 'Mèsi.', wuppOnlySuccessBody: 'Otorizasyon WUPP ou anrejistre. Nan solidarite!', successAgain: 'Voye yon lòt kat', emailCopyTitle: 'Voye kopi mwen siyen an ban mwen', emailCopyBtn: 'Voye l nan imèl mwen', emailCopySending: 'Ap voye\u2026', emailCopySent: 'Voye bay {email}', emailCopySendingMsg: 'N ap voye kopi ou\u2026',
       emailHint: 'Lè ou peze voye, l ap louvri aplikasyon imèl ou pou voye kat ou bay yon òganizatè.'
     },
     zh: {
       welcomeKicker: '正式工会卡', welcomeTitle: '加入 Workers United', welcomeBody: '在手机上签署你的工会卡——大约需要 3 分钟。',
+      wuppOnlyKicker: '致现有会员', wuppOnlyTitle: '签署 WUPP', wuppOnlyBody: '您已经是 Workers United 的会员了吗？授权每个发薪周期向 Workers United for Political Power (WUPP) 捐款——大约需要 2 分钟。',
       joinStatement: '是的，我愿意与同事们一起加入并成为 Workers United 的会员。',
       welcomeReassure: '加入是自愿且保密的。',
+      existingMemberLink: '已经是会员？改为签署 WUPP 卡',
       getStarted: '开始', back: '返回', continue: '继续',
       s1Title: '你的信息', s1Sub: '告诉我们如何联系你。',
       firstName: '名', lastName: '姓', mi: '中间名缩写', email: '电子邮箱', cellPhone: '手机号码',
@@ -804,7 +823,7 @@ class Component extends DCLogic {
       agreeLabel: '我已阅读并同意上述会员协议。', signature: '签名', signHelp: '用手指签名', clear: '清除', date: '日期',
       s3Title: 'Workers United for Political Power', s3Sub: '可选——你可以跳过此步骤。',
       wuppLead: '是的！我要让政客对工薪家庭负责，我知道只有团结起来才能做到。',
-      wuppAuth: '我授权我的雇主每月扣除下列金额并转交给 CMRJB，作为对 Workers United for Political Power (WUPP) 的捐款。我的签名表示我同意以下条款。',
+      wuppAuth: '我授权我的雇主每个发薪周期扣除下列金额并转交给 CMRJB，作为对 Workers United for Political Power (WUPP) 的捐款。我的签名表示我同意以下条款。',
       wuppTaxTop: '向 Workers United 或其任何附属机构的捐款或礼物不可作为慈善捐赠抵税。',
       wuppFine: '本授权是在我具体理解以下各点的基础上自愿作出的：1）我没有义务签署本表格，也没有义务向 WUPP 作自愿捐款，这不是我就业或加入工会的条件；2）我可以拒绝捐款而不会受到报复；3）根据法律，只有身为美国公民或合法永久居民的工会会员及行政/管理人员才有资格向 WUPP 捐款；4）本表格上的捐款金额仅为建议，我可以通过此方式或其他方式多捐或少捐，不必担心 Workers United 或我的雇主会因此给予优待或不利对待；5）WUPP 将其收到的款项用于政治用途——包括但不限于为竞选联邦、州及地方公职的候选人捐款和支出，以及处理具有公共重要性的政治议题。本授权在我通过美国邮政书面撤销之前持续有效。',
       wuppTaxBottom: '向 WUPP 的捐款或礼物不可作为慈善捐赠抵税。',
@@ -814,9 +833,9 @@ class Component extends DCLogic {
       contactMe: '请就参与机会与我联系。', submit: '提交我的工会卡', submitting: '正在发送…',
       sectionMember: '会员', sectionContact: '联系方式', sectionPolitical: '政治力量',
       notProvided: '—', yes: '是', no: '否', skipped: '已跳过',
-      errName: '请输入你的名和姓。', errInfo: '请填写所有字段以继续。', errWorksite: '请选择你的工作地点。', errAgree: '请勾选以表示同意。', errSign: '请添加你的签名。',
+      errName: '请输入你的名和姓。', errInfo: '请填写所有字段以继续。', errWorksite: '请选择你的工作地点。', errAgree: '请勾选以表示同意。', errSign: '请添加你的签名。', errWupp: '请选择"是"或"暂不"以继续。', errWuppDetails: '请选择金额、填写正楷姓名并签名以继续。',
       employerNoteTitle: '立即将副本交给你的雇主', employerNote: '联邦法律要求你的雇主立即收到你已签署卡片的副本。请点击下方下载或打印，并今天就交给你的雇主。',
-      successTitle: '你已加入！', successBody: '你的工会卡已登记。你的工会代表或车间代表会尽快与你联系。团结万岁！', successAgain: '再提交一张卡', emailCopyTitle: '把签署副本发送到我的邮箱', emailCopyBtn: '发送到我的邮箱', emailCopySending: '正在发送\u2026', emailCopySent: '已发送至 {email}', emailCopySendingMsg: '正在发送你的副本\u2026',
+      successTitle: '你已加入！', successBody: '你的工会卡已登记。你的工会代表或车间代表会尽快与你联系。团结万岁！', wuppOnlySuccessTitle: '谢谢。', wuppOnlySuccessBody: '您的 WUPP 授权已登记。团结万岁！', successAgain: '再提交一张卡', emailCopyTitle: '把签署副本发送到我的邮箱', emailCopyBtn: '发送到我的邮箱', emailCopySending: '正在发送\u2026', emailCopySent: '已发送至 {email}', emailCopySendingMsg: '正在发送你的副本\u2026',
       emailHint: '点击提交会打开你的邮件应用，把你的卡发送给组织者。'
     }
   };
@@ -856,7 +875,17 @@ class Component extends DCLogic {
   accessKey() { return this.props.web3formsKey || 'e83cbb66-1387-418b-82df-11d75fdcb8b5'; }
   includePolitical() { return this.props.includePolitical !== false; }
 
+  // /wupp (see netlify.toml redirect) is the same app, but for EXISTING
+  // members who only want to sign the WUPP political-power authorization --
+  // no new membership card, no membership signature. Everything else
+  // (worksite list, rep routing, PDF/email delivery, translations) is shared.
+  isWuppOnly() {
+    try { return window.location.pathname.replace(/\/$/, '') === '/wupp'; }
+    catch (e) { return false; }
+  }
+
   stepKeys() {
+    if (this.isWuppOnly()) return ['welcome', 'info', 'wupp', 'review'];
     const k = ['welcome', 'info', 'agreement'];
     if (this.includePolitical()) k.push('wupp');
     k.push('review');
@@ -874,6 +903,7 @@ class Component extends DCLogic {
     if (!window.jspdf) return null;
     const s = this.state;
     const t = this.T[s.lang] || this.T.en;
+    const wuppOnly = this.isWuppOnly();
     const doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'letter' });
     const W = doc.internal.pageSize.getWidth();
     const H = doc.internal.pageSize.getHeight();
@@ -898,23 +928,27 @@ class Component extends DCLogic {
     doc.setFont('helvetica', 'bold'); doc.setFontSize(13); doc.setTextColor(20);
     doc.text('WORKERS UNITED \u2014 CHICAGO & MIDWEST REGIONAL JOINT BOARD', headX, headTop, { maxWidth: W - M - headX });
     doc.setFont('helvetica', 'bold'); doc.setFontSize(10.5); doc.setTextColor(120);
-    doc.text('Union Membership Card \u2014 Member Copy', headX, headTop + 15);
+    doc.text(wuppOnly ? 'WUPP Authorization \u2014 Member Copy' : 'Union Membership Card \u2014 Member Copy', headX, headTop + 15);
     y += logoH + 6;
     rule();
-    text(t.agreeLabel, { size: 10, style: 'bold', color: 25 });
-    text(t.p1, {});
-    text(t.p2, {});
-    text(t.p3, {});
-    y += 4;
+    if (!wuppOnly) {
+      text(t.agreeLabel, { size: 10, style: 'bold', color: 25 });
+      text(t.p1, {});
+      text(t.p2, {});
+      text(t.p3, {});
+      y += 4;
+    }
     text('MEMBER INFORMATION', { size: 10, style: 'bold', color: 120, gap: 8 });
     [['Name', fullName], ['Email', s.email], ['Cell phone', s.cellPhone],
      ['Address', [s.address, s.city, [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ')],
      ['Worksite', s.worksite], ['Job title', s.jobTitle], ['Preferred language', s.prefLang]
     ].forEach((row) => text(row[0] + ':  ' + (row[1] || '\u2014'), { size: 10, gap: 3 }));
-    y += 6;
-    text('Signature:', { size: 10, style: 'bold', color: 20, gap: 4 });
-    if (s.memberSig) { ensure(64); try { doc.addImage(s.memberSig, 'PNG', M, y, 180, 54); } catch (e) {} y += 64; } else { text('\u2014', { size: 10 }); }
-    text('Date:  ' + this.today(), { size: 10, gap: 4 });
+    if (!wuppOnly) {
+      y += 6;
+      text('Signature:', { size: 10, style: 'bold', color: 20, gap: 4 });
+      if (s.memberSig) { ensure(64); try { doc.addImage(s.memberSig, 'PNG', M, y, 180, 54); } catch (e) {} y += 64; } else { text('\u2014', { size: 10 }); }
+      text('Date:  ' + this.today(), { size: 10, gap: 4 });
+    }
 
     if (this.includePolitical() && s.wuppOptIn) {
       rule();
@@ -938,7 +972,7 @@ class Component extends DCLogic {
     if (!doc) { return; }
     const s = this.state;
     const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
-    doc.save('Workers United Card - ' + nm + '.pdf');
+    doc.save((this.isWuppOnly() ? 'WUPP Authorization - ' : 'Workers United Card - ') + nm + '.pdf');
   }
 
   async emailMyCopy() {
@@ -1006,6 +1040,15 @@ class Component extends DCLogic {
       if (!s.agree) return t.errAgree;
       if (!s.memberSig) return t.errSign;
     }
+    if (key === 'wupp' && this.isWuppOnly()) {
+      // Signing WUPP is the entire point of this flow (unlike the join flow,
+      // where WUPP is an optional add-on step) -- require a real choice.
+      if (s.wuppOptIn === null) return t.errWupp;
+      if (s.wuppOptIn === true) {
+        const hasAmount = s.wuppAmount || s.wuppOther;
+        if (!hasAmount || !s.wuppPrintName.trim() || !s.wuppSigName.trim()) return t.errWuppDetails;
+      }
+    }
     return '';
   }
 
@@ -1040,8 +1083,10 @@ class Component extends DCLogic {
     if (this.state.submitting) return;
     if (!window.jspdf) { this.setState({ submitting: true }); await this.waitForJspdf(8000); }
     const s = this.state;
+    const wuppOnly = this.isWuppOnly();
+    const cardType = wuppOnly ? 'wupp_only' : 'membership';
     const L = [];
-    L.push('WORKERS UNITED — DIGITAL MEMBERSHIP CARD');
+    L.push(wuppOnly ? 'WORKERS UNITED — WUPP AUTHORIZATION' : 'WORKERS UNITED — DIGITAL MEMBERSHIP CARD');
     L.push('');
     L.push('Name: ' + [s.firstName, s.mi, s.lastName].filter(Boolean).join(' '));
     L.push('Email: ' + s.email);
@@ -1050,11 +1095,13 @@ class Component extends DCLogic {
     L.push('Worksite: ' + s.worksite);
     L.push('Job title: ' + s.jobTitle);
     L.push('Preferred language: ' + s.prefLang);
-    L.push('Agreed to membership: ' + (s.agree ? 'YES' : 'NO'));
-    L.push('Membership signature: ' + (s.memberSig ? '[drawn signature, see attached PDF]' : '[none]'));
+    if (!wuppOnly) {
+      L.push('Agreed to membership: ' + (s.agree ? 'YES' : 'NO'));
+      L.push('Membership signature: ' + (s.memberSig ? '[drawn signature, see attached PDF]' : '[none]'));
+    }
     if (this.includePolitical()) {
       L.push('');
-      L.push('WUPP (Political Power): ' + (s.wuppOptIn ? ('YES — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '?')) + '/month') : 'Not now'));
+      L.push('WUPP (Political Power): ' + (s.wuppOptIn ? ('YES — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '?')) + '/pay period') : 'Not now'));
       if (s.wuppOptIn) {
         L.push('WUPP name: ' + s.wuppPrintName);
         L.push('WUPP signature: ' + (s.wuppSigName || '[none]') + ' (e-signed)');
@@ -1063,7 +1110,7 @@ class Component extends DCLogic {
     L.push('Contact me to get involved: ' + (s.contactMe ? 'YES' : 'NO'));
     L.push('Date: ' + this.today());
     const body = L.join('\n');
-    const subject = 'New union card — ' + s.firstName + ' ' + s.lastName + ' (' + s.worksite + ')';
+    const subject = (wuppOnly ? 'New WUPP authorization — ' : 'New union card — ') + s.firstName + ' ' + s.lastName + ' (' + s.worksite + ')';
     const nm = [s.firstName, s.lastName].filter(Boolean).join(' ') || 'Member';
 
     const memberTo = (s.email || '').trim();
@@ -1090,6 +1137,7 @@ class Component extends DCLogic {
       params.append('pref_language', s.lang || '');
       params.append('wupp_optin', s.wuppOptIn ? 'Yes' : 'No');
       params.append('wupp_amount', s.wuppAmount || (s.wuppOther ? ('$' + s.wuppOther) : ''));
+      params.append('card_type', cardType);
       fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params.toString() }).catch(() => {});
     } catch (e) {}
 
@@ -1101,7 +1149,7 @@ class Component extends DCLogic {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ worksite: s.worksite, to: memberTo, name: nm, lang: s.lang, subject: subject, summary: body, pdfBase64: b64,
             email: s.email, cellPhone: s.cellPhone, address: [s.address, s.city, [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', '),
-            jobTitle: s.jobTitle, wuppOptIn: !!s.wuppOptIn, wuppAmount: s.wuppAmount || (s.wuppOther ? ('$' + s.wuppOther) : '') })
+            jobTitle: s.jobTitle, wuppOptIn: !!s.wuppOptIn, wuppAmount: s.wuppAmount || (s.wuppOther ? ('$' + s.wuppOther) : ''), cardType: cardType })
         });
         if (res.ok) { const j = await res.json().catch(() => ({})); viaFn = !!j.ok; memberOk = !!j.memberOk; }
       } catch (e) {}
@@ -1171,6 +1219,7 @@ class Component extends DCLogic {
 
   renderVals() {
     const s = this.state, t = this.T[s.lang];
+    const wuppOnly = this.isWuppOnly();
     const keys = this.stepKeys(), cur = keys[s.step];
     const show = (k) => ({ display: (!s.submitted && cur === k) ? 'block' : 'none' });
     const tot = keys.length - 1;
@@ -1192,6 +1241,13 @@ class Component extends DCLogic {
 
     return {
       t, v: s, langChips, prefLangChips, amountChips, on,
+      activeKicker: wuppOnly ? t.wuppOnlyKicker : t.welcomeKicker,
+      activeTitle: wuppOnly ? t.wuppOnlyTitle : t.welcomeTitle,
+      activeBody: wuppOnly ? t.wuppOnlyBody : t.welcomeBody,
+      showJoinStatement: !wuppOnly,
+      showMembershipSection: !wuppOnly,
+      activeSuccessTitle: wuppOnly ? t.wuppOnlySuccessTitle : t.successTitle,
+      activeSuccessBody: wuppOnly ? t.wuppOnlySuccessBody : t.successBody,
       legal: this.LEGAL, legalNote: t.legalNote, hasLegalNote: s.lang !== 'en' && !!t.legalNote,
       show: { welcome: show('welcome'), info: show('info'), agreement: show('agreement'), wupp: show('wupp'), review: show('review'), success: { display: s.submitted ? 'block' : 'none' } },
       showProgress: { display: (cur === 'welcome' || s.submitted) ? 'none' : 'block' },
@@ -1214,7 +1270,7 @@ class Component extends DCLogic {
       rvEmail: s.email || t.notProvided, rvPhone: s.cellPhone || t.notProvided,
       rvAddress: [[s.address, s.city].filter(Boolean).join(', '), [s.usState, s.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ') || t.notProvided,
       rvWorksite: s.worksite || t.notProvided, rvJob: s.jobTitle || t.notProvided, rvPref: s.prefLang || t.notProvided,
-      rvWupp: s.wuppOptIn ? (t.yes + ' — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '')) + '/mo') : t.skipped,
+      rvWupp: s.wuppOptIn ? (t.yes + ' — ' + (s.wuppAmount || (s.wuppOther ? '$' + s.wuppOther : '')) + '/pay period') : t.skipped,
       jumpInfo: () => this.jump('info'), jumpAgreement: () => this.jump('agreement'), jumpWupp: () => this.jump('wupp'),
       submitAnother: () => this.reset(),
       copyEmail: s.copyEmail, emailSent: s.emailSent, emailSending: s.emailSending, emailIdle: !s.emailSending && !s.emailSent,

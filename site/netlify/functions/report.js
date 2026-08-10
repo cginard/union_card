@@ -67,11 +67,12 @@ exports.handler = async (event) => {
       new Date(s.created_at).toLocaleString('en-US'),
       d.name || '', d.email || '', d.cell_phone || '', d.address || '',
       d.worksite || '', d.job_title || '', d.pref_language || '',
+      d.card_type === 'wupp_only' ? 'WUPP only' : 'Membership',
       d.wupp_optin || '', d.wupp_amount || '',
     ];
   });
 
-  const headerRow = ['Date signed', 'Name', 'Email', 'Cell phone', 'Address', 'Worksite', 'Job title', 'Preferred language', 'WUPP opt-in', 'WUPP amount'];
+  const headerRow = ['Date signed', 'Name', 'Email', 'Cell phone', 'Address', 'Worksite', 'Job title', 'Preferred language', 'Card type', 'WUPP opt-in', 'WUPP amount'];
   const xlsxBuf = buildXlsx(headerRow, data);
 
   return {
