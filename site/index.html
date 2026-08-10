@@ -404,6 +404,9 @@
         </div>
       </sc-if>
       <p style="font-size:13.5px;color:#8A8276;margin:0;text-align:center">{{ t.welcomeReassure }}</p>
+      <sc-if value="{{ showJoinStatement }}" hint-placeholder-val="{{ true }}">
+        <a href="/wupp" style="display:block;margin-top:22px;text-align:center;font-size:13.5px;color:#8A8276;text-decoration:underline;text-underline-offset:2px">{{ t.existingMemberLink }}</a>
+      </sc-if>
     </section>
 
     <!-- INFO -->
@@ -704,6 +707,7 @@ class Component extends DCLogic {
       wuppOnlyKicker: 'For Current Members', wuppOnlyTitle: 'Sign WUPP', wuppOnlyBody: 'Already a Workers United member? Authorize a monthly contribution to Workers United for Political Power — it takes about 2 minutes.',
       joinStatement: 'Yes, I want to join with my fellow employees and become a member of Workers United.',
       welcomeReassure: 'Joining is voluntary and confidential.',
+      existingMemberLink: 'Already a member? Sign a WUPP card instead',
       getStarted: 'Get started', back: 'Back', continue: 'Continue',
       s1Title: 'Your information', s1Sub: 'Tell us how to reach you.',
       firstName: 'First name', lastName: 'Last name', mi: 'M.I.', email: 'Email', cellPhone: 'Cell phone',
@@ -738,6 +742,7 @@ class Component extends DCLogic {
       wuppOnlyKicker: 'Para miembros actuales', wuppOnlyTitle: 'Firma WUPP', wuppOnlyBody: '¿Ya eres miembro de Workers United? Autoriza una contribución mensual a Workers United for Political Power — toma unos 2 minutos.',
       joinStatement: 'Sí, quiero unirme a mis compañeros de trabajo y hacerme miembro de Workers United.',
       welcomeReassure: 'Unirse es voluntario y confidencial.',
+      existingMemberLink: '¿Ya eres miembro? Firma una tarjeta WUPP en su lugar',
       getStarted: 'Comenzar', back: 'Atrás', continue: 'Continuar',
       s1Title: 'Tu información', s1Sub: 'Dinos cómo contactarte.',
       firstName: 'Nombre', lastName: 'Apellido', mi: 'Inicial', email: 'Correo electrónico', cellPhone: 'Teléfono celular',
@@ -773,6 +778,7 @@ class Component extends DCLogic {
       wuppOnlyKicker: 'Pou manm ki deja la', wuppOnlyTitle: 'Siyen WUPP', wuppOnlyBody: 'Ou se deja yon manm Workers United? Otorize yon kontribisyon chak mwa bay Workers United for Political Power — li pran anviwon 2 minit.',
       joinStatement: 'Wi, mwen vle antre ansanm ak kòlèg travay mwen yo epi vin manm Workers United.',
       welcomeReassure: 'Antre se volontè e konfidansyèl.',
+      existingMemberLink: 'Ou se deja yon manm? Siyen yon kat WUPP pito',
       getStarted: 'Kòmanse', back: 'Tounen', continue: 'Kontinye',
       s1Title: 'Enfòmasyon ou', s1Sub: 'Di nou kijan pou nou kontakte ou.',
       firstName: 'Prenon', lastName: 'Siyati', mi: 'Inisyal', email: 'Imèl', cellPhone: 'Telefòn selilè',
@@ -805,6 +811,7 @@ class Component extends DCLogic {
       wuppOnlyKicker: '致现有会员', wuppOnlyTitle: '签署 WUPP', wuppOnlyBody: '您已经是 Workers United 的会员了吗？授权每月向 Workers United for Political Power (WUPP) 捐款——大约需要 2 分钟。',
       joinStatement: '是的，我愿意与同事们一起加入并成为 Workers United 的会员。',
       welcomeReassure: '加入是自愿且保密的。',
+      existingMemberLink: '已经是会员？改为签署 WUPP 卡',
       getStarted: '开始', back: '返回', continue: '继续',
       s1Title: '你的信息', s1Sub: '告诉我们如何联系你。',
       firstName: '名', lastName: '姓', mi: '中间名缩写', email: '电子邮箱', cellPhone: '手机号码',
