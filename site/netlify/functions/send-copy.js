@@ -42,6 +42,39 @@ const MEMBER_COPY = {
   },
 };
 
+// Member copy for existing members who only signed a WUPP (political power) authorization
+// — no membership agreement/signature involved, so the wording differs from MEMBER_COPY above.
+const MEMBER_COPY_WUPP = {
+  en: {
+    subject: 'Your signed WUPP authorization',
+    html: (n) =>
+      `<p>Hi ${n},</p>
+       <p>Thank you for signing your Workers United for Political Power (WUPP) authorization. A copy is attached as a PDF for your records.</p>
+       <p>In solidarity,<br>Workers United &mdash; Chicago &amp; Midwest Regional Joint Board</p>`,
+  },
+  es: {
+    subject: 'Tu autorización de WUPP firmada',
+    html: (n) =>
+      `<p>Hola ${n}:</p>
+       <p>Gracias por firmar tu autorización de Workers United for Political Power (WUPP). Adjuntamos una copia en PDF para tus registros.</p>
+       <p>En solidaridad,<br>Workers United &mdash; Chicago &amp; Midwest Regional Joint Board</p>`,
+  },
+  ht: {
+    subject: 'Otorizasyon WUPP ou siyen an',
+    html: (n) =>
+      `<p>Bonjou ${n},</p>
+       <p>M&egrave;si paske ou siyen otorizasyon Workers United for Political Power (WUPP) ou. Nou tache yon kopi kòm yon PDF pou dosye ou.</p>
+       <p>Nan solidarite,<br>Workers United &mdash; Chicago &amp; Midwest Regional Joint Board</p>`,
+  },
+  zh: {
+    subject: '您已签署的 WUPP 授权',
+    html: (n) =>
+      `<p>${n} 您好：</p>
+       <p>感谢您签署 Workers United for Political Power (WUPP) 授权。随附 PDF 副本，供您留存。</p>
+       <p>团结一致，<br>Workers United &mdash; Chicago &amp; Midwest Regional Joint Board</p>`,
+  },
+};
+
 const WORKSITE_REP_MAP = {
   "37th Street Bakery formerly GOLD STANDARD — Chicago, IL": "msalgado@cmrjb.org",
   "5 Star Hotel Laundry - PureStar Group - Loews Hotel — Rosemont, IL": "dnava@cmrjb.org",
@@ -356,6 +389,7 @@ exports.handler = async (event) => {
         name: (data.name || '').toString().slice(0, 120),
         email: (data.email || '').toString().slice(0, 120),
         worksite: (data.worksite || '').toString().slice(0, 200),
+        cardType: data.cardType === 'wupp_only' ? 'wupp_only' : 'membership',
         submittedAt: new Date().toISOString(),
       },
     });
@@ -364,13 +398,15 @@ exports.handler = async (event) => {
     console.error('[send-copy] FAILED to archive signed PDF to Blobs:', e);
   }
 
+  const cardType = data.cardType === 'wupp_only' ? 'wupp_only' : 'membership';
   const from = process.env.CARD_FROM_EMAIL || 'Workers United <onboarding@resend.dev>';
   const backstop = (process.env.ORGANIZER_EMAIL || 'members@cmrjb.org').trim();
   const repEmail = (WORKSITE_REP_MAP[data.worksite] || '').trim();
   const organizer = (data.organizer || ('ncampos@cmrjb.org, ' + backstop + (repEmail ? (', ' + repEmail) : ''))).trim();
-  const lang = MEMBER_COPY[data.lang] ? data.lang : 'en';
+  const memberCopies = cardType === 'wupp_only' ? MEMBER_COPY_WUPP : MEMBER_COPY;
+  const lang = memberCopies[data.lang] ? data.lang : 'en';
   const name = (data.name || '').toString().slice(0, 80) || 'Member';
-  const attachments = [{ filename: 'Workers United Card.pdf', content: pdfBase64 }];
+  const attachments = [{ filename: (cardType === 'wupp_only' ? 'WUPP Authorization.pdf' : 'Workers United Card.pdf'), content: pdfBase64 }];
 
   async function send(to, subject, html) {
     try {
@@ -386,10 +422,13 @@ exports.handler = async (event) => {
   // 1) Organizer copy — the official signed record (always). ORGANIZER_EMAIL / data.organizer
   // may be a single address or a comma-separated list (e.g. "members@cmrjb.org, dues@cmrjb.org").
   const organizerList = organizer.split(',').map((s) => s.trim()).filter(Boolean);
-  const orgSubject = data.subject || ('New signed union card — ' + name);
+  const orgSubject = data.subject || (cardType === 'wupp_only' ? ('New signed WUPP authorization — ' + name) : ('New signed union card — ' + name));
+  const orgIntro = cardType === 'wupp_only'
+    ? '<p>A new WUPP (political power) authorization was signed. The signed PDF is attached as the official record.</p>'
+    : '<p>A new union card was signed. The signed PDF is attached as the official record.</p>' +
+      '<p><strong>Reps/stewards:</strong> federal law requires the employer to receive a copy of this signed card right away — please forward this email (with the attached PDF) to the employer today.</p>';
   const orgHtml =
-    '<p>A new union card was signed. The signed PDF is attached as the official record.</p>' +
-    '<p><strong>Reps/stewards:</strong> federal law requires the employer to receive a copy of this signed card right away — please forward this email (with the attached PDF) to the employer today.</p>' +
+    orgIntro +
     '<pre style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;white-space:pre-wrap">' +
     escapeHtml(data.summary || '') + '</pre>';
   const orgOk = await send(organizerList, orgSubject, orgHtml);
@@ -398,7 +437,7 @@ exports.handler = async (event) => {
   let memberOk = false;
   const to = (data.to || '').trim();
   if (to) {
-    const c = MEMBER_COPY[lang];
+    const c = memberCopies[lang];
     memberOk = await send([to], c.subject, c.html(name));
   }
 

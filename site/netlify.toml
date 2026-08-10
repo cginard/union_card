@@ -9,3 +9,12 @@
   # keeps node_modules out of the published static site (which is the same
   # folder as the base directory in this project).
   command = "npm install --prefix netlify/functions"
+
+# /wupp serves the same app (index.html) with the URL kept as /wupp, so the
+# client-side isWuppOnly() check (see index.html) can switch into the
+# existing-member WUPP-only flow. status = 200 means a rewrite, not a
+# redirect -- the browser's address bar still shows /wupp.
+[[redirects]]
+  from = "/wupp"
+  to = "/index.html"
+  status = 200
