@@ -398,10 +398,10 @@
       <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:36px;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px;color:#161412">{{ activeTitle }}</h1>
       <p style="font-size:16px;line-height:1.5;color:#5C564E;margin:0 0 22px">{{ activeBody }}</p>
       <sc-if value="{{ showJoinStatement }}" hint-placeholder-val="{{ true }}">
-        <div style="background:#161412;border-radius:16px;padding:22px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px">
+        <button type="button" onClick="{{ navPrimaryAction }}" style="background:#161412;border:none;border-radius:16px;padding:22px 20px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;cursor:pointer">
           <img src="assets/wu-mark.png" alt="" style="height:22px;width:auto;display:block;flex:none;margin-top:2px">
           <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;line-height:1.32;color:#fff;margin:0">{{ t.joinStatement }}</p>
-        </div>
+        </button>
       </sc-if>
       <p style="font-size:13.5px;color:#8A8276;margin:0;text-align:center">{{ t.welcomeReassure }}</p>
       <sc-if value="{{ showJoinStatement }}" hint-placeholder-val="{{ true }}">
